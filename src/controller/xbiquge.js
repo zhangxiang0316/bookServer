@@ -72,23 +72,19 @@ const getBookDetail = async (detailUrl) => {
     const $ = cheerio.load(res)
     const detail = {}
     const arr = []
-    $('#content').html().split('<br />').map(item => {
+    console.log($('#content').html())
+    $('#content').html().split('<br>').map(item => {
         if (item.indexOf('<p') == -1)
-            arr.push(item.trim())
+            arr.push(item.replace('&nbsp',''))
     })
     detail.title = $('.bookname h1').text()
     detail.form = '新笔趣阁'
     detail.detail = arr
-    $('script').map(function (i, el) {
-        if (i === 3) {
-            const text = $(this)[0].children[0].data
-            const matchNext = text.match(/var next_page = (.*);/);
-            const nextPage = matchNext[1].replace('"', '').replace('"', '')
-            const matchPreview = text.match(/var preview_page = (.*);/);
-            const previewPage = matchPreview[1].replace('"', '').replace('"', '')
-            detail.nextUrl = nextPage.indexOf('.html') === -1 ? '' : nextPage;
-            detail.previewUrl = previewPage.indexOf('.html') === -1 ? '' : previewPage;
-        }
+    $('.bottem2 a').each(function (i, el) {
+        if (i === 1)
+            detail.previewUrl = $(el).attr('href')
+        if (i === 3)
+            detail.nextUrl = $(el).attr('href')
     })
     return detail
 }
