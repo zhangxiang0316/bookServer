@@ -5,10 +5,11 @@ const json = require('koa-json')
 const onerror = require('koa-onerror')
 const bodyparser = require('koa-bodyparser')
 const logger = require('koa-logger')
+const Kcors = require('kcors')
 
-
-const index = require('./routes/index')
-const users = require('./routes/users')
+const index = require('./src/routes/index')
+const biquge = require('./src/routes/biquge')
+const xbiquge = require('./src/routes/xbiquge')
 
 // error handler
 onerror(app)
@@ -20,6 +21,14 @@ app.use(bodyparser({
 app.use(json())
 app.use(logger())
 app.use(require('koa-static')(__dirname + '/public'))
+
+// 跨域设置
+const corsOptions = {
+    'origin': '*',
+    'credentials': true,
+    'maxAge': 3600
+};
+app.use(Kcors(corsOptions));
 
 app.use(views(__dirname + '/views', {
     extension: 'ejs'
@@ -35,7 +44,8 @@ app.use(async (ctx, next) => {
 
 // routes
 app.use(index.routes(), index.allowedMethods())
-app.use(users.routes(), users.allowedMethods())
+app.use(biquge.routes(), biquge.allowedMethods())
+app.use(xbiquge.routes(), xbiquge.allowedMethods())
 
 // error-handling
 app.on('error', (err, ctx) => {

@@ -29,7 +29,7 @@ const execute = (sql) => {
                 reject(err)
                 return
             }
-            resolve(JSON.parse(JSON.stringify(result))[0])
+            resolve(JSON.parse(JSON.stringify(result)))
         })
     })
 }

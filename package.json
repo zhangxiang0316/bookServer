@@ -10,8 +10,10 @@
   },
   "dependencies": {
     "axios": "^0.24.0",
+    "cheerio": "^1.0.0-rc.10",
     "debug": "^4.1.1",
     "ejs": "~2.3.3",
+    "kcors": "^2.2.2",
     "koa": "^2.7.0",
     "koa-bodyparser": "^4.2.1",
     "koa-convert": "^1.2.0",
