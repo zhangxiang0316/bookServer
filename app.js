@@ -10,6 +10,7 @@ const Kcors = require('kcors')
 const index = require('./src/routes/index')
 const biquge = require('./src/routes/biquge')
 const xbiquge = require('./src/routes/xbiquge')
+const xihongshi = require('./src/routes/xihongshi')
 
 // error handler
 onerror(app)
@@ -46,6 +47,7 @@ app.use(async (ctx, next) => {
 app.use(index.routes(), index.allowedMethods())
 app.use(biquge.routes(), biquge.allowedMethods())
 app.use(xbiquge.routes(), xbiquge.allowedMethods())
+app.use(xihongshi.routes(), xihongshi.allowedMethods())
 
 // error-handling
 app.on('error', (err, ctx) => {
