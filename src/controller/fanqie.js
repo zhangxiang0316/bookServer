@@ -1,18 +1,24 @@
-const Http = require('../http/xbiquge')
+/**
+ * create by zhangxiang on 2021-12-08 20:06
+ * 类注释：
+ * 备注：
+ */
+const Http = require('../http/fanqie')
 const cheerio = require('cheerio')
 const qs = require('qs')
+const {xihongshi_Host} = require('../conf/conf')
 
 const search = async (name) => {
-    const res = await Http.post('/modules/article/waps.php', qs.stringify({searchkey: name}))
+    const res = await Http.post('/modules/article/search.php', qs.stringify({keyword: name}))
     const $ = cheerio.load(res.toString())
     const bookArr = []
-    $('.grid tr').each(function (i, el) {
+    $('.novelslist2 li').each(function (i, el) {
         const obj = {}
         if (i > 0) {
-            obj.menuUrl = $(el).find('.even a').attr('href')
-            obj.name = $(el).find('.even a').text()
-            obj.author = $(el).find('.even').text()
-            obj.from = '新笔趣阁'
+            obj.menuUrl = $(el).find('.s2 a').attr('href')
+            obj.name = $(el).find('.s2 a').text()
+            obj.author = $(el).find('.s4').text()
+            obj.from = '番茄小说'
             obj.imgUrl = ''
             bookArr.push(obj)
         }
@@ -31,22 +37,22 @@ const getMenuList = async (menuUrl) => {
     const bookDetail = {}
     const info = {}
     const arr = []
-    info.imgUrl = $('#sidebar #fmimg img').attr('src')
+    info.imgUrl = xihongshi_Host + $('#sidebar #fmimg img').attr('src')
     info.name = $('#maininfo #info h1').text()
     info.status = '暂无'
     $('#intro p').each(function (i, el) {
-        if (i > 0)
+        if (i == 0)
             info.disc = $(el).text()
     })
     $('#maininfo #info p').each(function (i, el) {
         if (i === 0)
-            info.author = $(el).text().trim()
+            info.author = $(el).text().replace(/&nbsp;/g, '').trim()
         if (i === 2)
             info.updataTime = $(el).text()
         if (i === 3)
             info.last = {
                 url: $(el).find('a').attr('href'),
-                from: '新笔趣阁',
+                from: '番茄小说',
                 name: $(el).find('a').text()
             }
     })
@@ -54,7 +60,7 @@ const getMenuList = async (menuUrl) => {
         const obj = {}
         obj.url = $(el).find('a').attr('href')
         obj.name = $(el).find('a').text()
-        obj.from = '新笔趣阁'
+        obj.from = '番茄小说'
         arr.push(obj)
     })
     bookDetail.info = info
@@ -69,27 +75,24 @@ const getMenuList = async (menuUrl) => {
  */
 const getBookDetail = async (detailUrl) => {
     const res = await Http.get(detailUrl)
-    const $ = cheerio.load(res)
+    const $ = cheerio.load(res.toString())
     const detail = {}
     const arr = []
-    $('#content').html().split('<br>').map(item => {
-        if (item.indexOf('<p') == -1 && item.indexOf('p>') == -1) {
-            const line = item.replace(/&nbsp;/g, '').replace('\n', '')
-            if (line)
-                arr.push(line)
-        }
+    $('#content p').each(function (i, el) {
+        arr.push($(el).text())
     })
     detail.title = $('.bookname h1').text()
-    detail.form = '新笔趣阁'
+    detail.form = '西红柿'
     detail.detail = arr
     $('.bottem2 a').each(function (i, el) {
-        if (i === 1)
+        if (i === 0)
             detail.previewUrl = $(el).attr('href').indexOf('.html') != -1 ? $(el).attr('href') : ''
-        if (i === 3)
+        if (i === 2)
             detail.nextUrl = $(el).attr('href').indexOf('.html') != -1 ? $(el).attr('href') : ""
     })
     return detail
 }
+
 
 module.exports = {
     search,

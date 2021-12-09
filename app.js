@@ -11,6 +11,10 @@ const index = require('./src/routes/index')
 const biquge = require('./src/routes/biquge')
 const xbiquge = require('./src/routes/xbiquge')
 const xihongshi = require('./src/routes/xihongshi')
+const wudi = require('./src/routes/wudi')
+const fanqie = require('./src/routes/fanqie')
+const yongsheng = require('./src/routes/yongsheng')
+const xbiqupao = require('./src/routes/xbiqupao')
 
 // error handler
 onerror(app)
@@ -48,6 +52,10 @@ app.use(index.routes(), index.allowedMethods())
 app.use(biquge.routes(), biquge.allowedMethods())
 app.use(xbiquge.routes(), xbiquge.allowedMethods())
 app.use(xihongshi.routes(), xihongshi.allowedMethods())
+app.use(wudi.routes(), wudi.allowedMethods())
+app.use(fanqie.routes(), fanqie.allowedMethods())
+app.use(yongsheng.routes(), yongsheng.allowedMethods())
+app.use(xbiqupao.routes(), xbiqupao.allowedMethods())
 
 // error-handling
 app.on('error', (err, ctx) => {
