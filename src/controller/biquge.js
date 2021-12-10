@@ -54,10 +54,12 @@ const getMenuList = async (menuUrl) => {
     })
     $('.listmain dl dd').each(function (i, el) {
         const obj = {}
-        obj.url = $(el).find('a').attr('href')
-        obj.name = $(el).find('a').text()
-        obj.from = '笔趣阁'
-        arr.push(obj)
+        if ($(el).find('a').attr('href').indexOf('javascript')==-1){
+            obj.url = $(el).find('a').attr('href')
+            obj.name = $(el).find('a').text()
+            obj.from = '笔趣阁'
+            arr.push(obj)
+        }
     })
     bookDetail.info = info
     bookDetail.list = arr
@@ -110,7 +112,7 @@ const getHome = async () => {
     $('.hot .item').each(function (i, el) {
         const hot = {}
         const html = $(el)
-        hot.bookMenuUrl = html.find('a').attr('href')
+        hot.menuUrl = html.find('a').attr('href')
         hot.disc = html.find('dl dd').text()
         hot.author = html.find('span').text()
         hot.name = html.find('a').text()
@@ -123,7 +125,7 @@ const getHome = async () => {
         const html = $(el)
         top.type = html.find('.s1').text()
         top.name = html.find('a').text()
-        top.bookMenuUrl = html.find('a').attr('href')
+        top.menuUrl = html.find('a').attr('href')
         top.author = html.find('.s5').text()
         top.from = '笔趣阁'
         detail.top.list.push(top)
@@ -136,7 +138,7 @@ const getHome = async () => {
         block.name = $(el).find('h2').text()
         const first = {}
         first.name = $(el).find('.block_top dl a').text()
-        first.bookMenuUrl = $(el).find('.block_top dl a').attr('href')
+        first.menuUrl = $(el).find('.block_top dl a').attr('href')
         first.disc = $(el).find('.block_top dd').text()
         first.imgUrl = $(el).find('.block_top .image img').attr('src')
         first.from = '笔趣阁'
@@ -145,7 +147,7 @@ const getHome = async () => {
             const obj = {}
             const html = $(e)
             obj.name = html.find('.s2').text()
-            obj.bookMenuUrl = html.find('.s2 a').attr('href')
+            obj.menuUrl = html.find('.s2 a').attr('href')
             obj.type = html.find('.s1').text()
             obj.author = html.find('.s3').text()
             obj.from = '笔趣阁'
@@ -156,9 +158,56 @@ const getHome = async () => {
     return detail
 }
 
+/**
+ * 根据类型获取 分类列表
+ * @param page
+ * @param sortid
+ */
+const getBookListByType = async (page, sortid) => {
+    const res = await Http.get('/json', {params: {page, sortid}})
+    const list = res.map(item => {
+        const obj = {}
+        obj.menuUrl = item.url_list
+        obj.name = item.articlename
+        obj.author = item.author
+        obj.imgUrl = item.url_img
+        obj.from = '笔趣阁'
+        return obj
+    })
+    return list
+}
+
+/**
+ * 获取TOP50
+ * @returns {Promise<unknown>}
+ */
+const getTopFifty = async () => {
+    const res = await Http.get('/top/')
+    const $ = cheerio.load(res)
+    let arr = []
+    $(".blocks").each(function (i, el) {
+        const obj = {
+            list: []
+        }
+        obj.name = $(el).find('h2').text()
+        $(el).find('li').each(function (j, ele) {
+            const obj1 = {}
+            obj1.menuUrl = $(ele).find('a').attr('href')
+            obj1.name = $(ele).find('a').text()
+            obj1.author = $(ele).text().split('/')[1]
+            obj1.from = '笔趣阁'
+            obj.list.push(obj1)
+        })
+        arr.push(obj)
+    })
+    return arr
+}
+
 module.exports = {
     search,
     getMenuList,
     getBookDetail,
-    getHome
+    getHome,
+    getBookListByType,
+    getTopFifty
 }

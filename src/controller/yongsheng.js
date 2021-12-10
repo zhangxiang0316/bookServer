@@ -15,7 +15,7 @@ const search = async (name) => {
     $('.info').each(function (i, el) {
         const obj = {}
         obj.menuUrl = $(el).find('h2 a').attr('href')
-        obj.name = $(el).find('h2 a').text()
+        obj.name = $(el).find('h2 b a').text()
         $(el).find('li font').each(function (j, ele) {
             if (j == 0)
                 obj.author = $(ele).text()
@@ -40,16 +40,19 @@ const getMenuList = async (menuUrl) => {
     let $ = cheerio.load(data.toString())
     info.imgUrl = yongsheng_Host + $('.articleInfo .articleInfoLeft p a img').attr('src')
     info.name = $('.articleInfo .articleInfoRight h1').text()
-    info.author = $('.articleInfo .articleInfoRight b').text()
-    info.disc = ""
-    info.status = ''
+    $('.articleInfo .articleInfoRight b').each(function (i, el) {
+        if (i == 0)
+            info.author = $(el).text()
+    })
+    info.disc = $('#wrap').text()
+    info.updataTime = $('.articleInfoRight dl dt span').text()
+    info.status = '暂无'
     info.last = {
-        url: '',
+        url: $('.articleInfoRight span a').attr('href'),
         from: '永生文学',
-        name: ''
+        name: $('.articleInfoRight span a').text()
     }
     menuUrl = $('.articleInfo .articleInfoRight ol .right a').attr('href')
-    console.log('--------', menuUrl)
     data = await Http.get(menuUrl)
     $ = cheerio.load(data.toString())
     $('#newlist div').each(function (i, el) {
@@ -129,7 +132,6 @@ const getBookDetail = async (detailUrl) => {
         else if (i == 2)
             next = $(el).attr('href')
     })
-    console.log(next, preview, mulu)
     detail.previewUrl = preview.indexOf('.html') != -1 ? mulu + preview : ''
     detail.nextUrl = next.indexOf('.html') != -1 ? mulu + next : ""
     return detail

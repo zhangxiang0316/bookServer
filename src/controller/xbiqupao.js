@@ -80,11 +80,11 @@ const getBookDetail = async (detailUrl) => {
     })
     detail.title = $('.bookname h1').text()
     detail.detail = arr
-   $('.bookname .bottem1 a').each(function (i,el){
-       if (i === 0)
-           detail.previewUrl = $(el).attr('href').indexOf('.html') != -1 ? $(el).attr('href') : ''
-       if (i === 2)
-           detail.nextUrl = $(el).attr('href').indexOf('.html') != -1 ? $(el).attr('href') : ""
+    $('.bookname .bottem1 a').each(function (i, el) {
+        if (i === 0)
+            detail.previewUrl = $(el).attr('href').indexOf('.html') != -1 ? $(el).attr('href') : ''
+        if (i === 2)
+            detail.nextUrl = $(el).attr('href').indexOf('.html') != -1 ? $(el).attr('href') : ""
     })
     return detail
 }

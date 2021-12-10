@@ -6,7 +6,6 @@
 const Http = require('../http/fanqie')
 const cheerio = require('cheerio')
 const qs = require('qs')
-const {xihongshi_Host} = require('../conf/conf')
 
 const search = async (name) => {
     const res = await Http.post('/modules/article/search.php', qs.stringify({keyword: name}))
@@ -37,7 +36,7 @@ const getMenuList = async (menuUrl) => {
     const bookDetail = {}
     const info = {}
     const arr = []
-    info.imgUrl = xihongshi_Host + $('#sidebar #fmimg img').attr('src')
+    info.imgUrl =  $('#sidebar #fmimg img').attr('src')
     info.name = $('#maininfo #info h1').text()
     info.status = '暂无'
     $('#intro p').each(function (i, el) {
