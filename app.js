@@ -15,6 +15,7 @@ const wudi = require('./src/routes/wudi')
 const fanqie = require('./src/routes/fanqie')
 const yongsheng = require('./src/routes/yongsheng')
 const xbiqupao = require('./src/routes/xbiqupao')
+const xiaoxiang = require('./src/routes/xiaoxiang')
 
 // error handler
 onerror(app)
@@ -56,6 +57,7 @@ app.use(wudi.routes(), wudi.allowedMethods())
 app.use(fanqie.routes(), fanqie.allowedMethods())
 app.use(yongsheng.routes(), yongsheng.allowedMethods())
 app.use(xbiqupao.routes(), xbiqupao.allowedMethods())
+app.use(xiaoxiang.routes(), xiaoxiang.allowedMethods())
 
 // error-handling
 app.on('error', (err, ctx) => {
