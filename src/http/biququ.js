@@ -1,8 +1,8 @@
-//新笔趣阁
+//笔趣趣
 const axios = require("axios");
 
 const Http = axios.create({
-    baseURL: 'https://www.xbiquge.la',
+    baseURL: 'http://www.biququ.info',
     timeout: 60 * 1000,
     withCredentials: true
 })

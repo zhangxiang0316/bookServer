@@ -6,6 +6,7 @@ const wudi = require('../controller/wudi')
 const fanqie = require('../controller/fanqie')
 const yongsheng = require('../controller/yongsheng')
 const xbiqupao = require('../controller/xbiqupao')
+const biququ = require('../controller/biququ')
 
 router.get('/getMenuList', async (ctx, next) => {
     const bookUrl = ctx.query.bookUrl
@@ -34,6 +35,9 @@ router.get('/getMenuList', async (ctx, next) => {
             break
         case "笔趣泡":
             menuDetail = await xbiqupao.getMenuList(ctx.query.bookUrl)
+            break
+        case "笔趣趣":
+            menuDetail = await biququ.getMenuList(ctx.query.bookUrl)
             break
         default:
             break
@@ -68,6 +72,9 @@ router.get('/getBookDetail', async (ctx, next) => {
             break
         case '笔趣泡':
             bookDetail = await xbiqupao.getBookDetail(detailUrl)
+            break
+        case '笔趣趣':
+            bookDetail = await biququ.getBookDetail(detailUrl)
             break
         default:
             break
