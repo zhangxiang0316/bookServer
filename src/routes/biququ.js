@@ -1,7 +1,7 @@
 const router = require('koa-router')()
-const {search} = require('../controller/nunu')
+const {search} = require('../controller/biququ')
 
-router.get('/nunu/search', async (ctx, next) => {
+router.get('/biququ/search', async (ctx, next) => {
     ctx.body = await search(ctx.query.name)
 })
 
