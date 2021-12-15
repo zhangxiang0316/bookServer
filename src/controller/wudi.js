@@ -12,7 +12,7 @@ const search = async (name) => {
         obj.name = $(el).find('.sCboxBookParR .top h1 a').text()
         obj.author = $(el).find('.sCboxBookParR .top .s2').text()
         obj.from = '无敌小说网'
-        obj.imgUrl = 'http：' + $(el).find('.sCboxBookParL img').attr('data-original')
+        obj.imgUrl = 'http:' + $(el).find('.sCboxBookParL img').attr('data-original')
         bookArr.push(obj)
     });
     return bookArr

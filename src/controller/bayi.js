@@ -9,7 +9,6 @@ const cheerio = require('cheerio')
 const search = async (name) => {
     const res = await Http.get('/search.php', {params: {q: name}})
     const $ = cheerio.load(res.toString())
-    console.log(res)
     const bookArr = []
     $('.result-list .result-item').each(function (i, el) {
         const obj = {}

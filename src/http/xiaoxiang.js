@@ -6,8 +6,6 @@
 
 const axios = require("axios");
 
-//modules/article/waps.php
-
 const Http = axios.create({
   baseURL: 'https://www.xxsy.net',
   timeout: 60 * 1000,
