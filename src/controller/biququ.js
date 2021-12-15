@@ -53,7 +53,7 @@ const getMenuList = async (menuUrl) => {
         if (i === 3)
             info.last = {
                 url: $(el).find('a').attr('href'),
-                from: '番茄小说',
+                from: '笔趣趣',
                 name: $(el).find('a').text()
             }
     })
@@ -61,7 +61,7 @@ const getMenuList = async (menuUrl) => {
         const obj = {}
         obj.url = $(el).find('a').attr('href')
         obj.name = $(el).find('a').text()
-        obj.from = '番茄小说'
+        obj.from = '笔趣趣'
         arr.push(obj)
     })
     bookDetail.info = info
@@ -83,7 +83,7 @@ const getBookDetail = async (detailUrl) => {
         arr.push($(el).text())
     })
     detail.title = $('.bookname h1').text()
-    detail.form = '西红柿'
+    detail.form = '笔趣趣'
     detail.detail = arr
     $('.bottem2 a').each(function (i, el) {
         if (i === 0)

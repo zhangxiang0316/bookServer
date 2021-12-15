@@ -80,6 +80,7 @@ const getBookDetail = async (detailUrl) => {
     })
     detail.title = $('.bookname h1').text()
     detail.detail = arr
+    detail.from = '笔趣泡'
     $('.bookname .bottem1 a').each(function (i, el) {
         if (i === 0)
             detail.previewUrl = $(el).attr('href').indexOf('.html') != -1 ? $(el).attr('href') : ''

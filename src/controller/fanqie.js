@@ -81,7 +81,7 @@ const getBookDetail = async (detailUrl) => {
         arr.push($(el).text())
     })
     detail.title = $('.bookname h1').text()
-    detail.form = '西红柿'
+    detail.form = '番茄小说'
     detail.detail = arr
     $('.bottem2 a').each(function (i, el) {
         if (i === 0)
