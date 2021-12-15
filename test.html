@@ -1,472 +1,316 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <meta http-equiv="Cache-Control" content="no-siteapp"/>
-    <meta http-equiv="Cache-Control" content="no-transform"/>
-    <meta name="mobile-agent" content="format=[wml|xhtml|html5]; url=http://m.biququ.info/html/47771/"/>
-    <meta http-equiv="mobile-agent" content="format=html5; url=http://m.biququ.info/html/47771/"/>
-    <meta http-equiv="mobile-agent" content="format=xhtml; url=http://m.biququ.info/html/47771/"/>
-    <script type="text/javascript" src="/bqq/m.js"></script>
-    <title>万相之王_万相之王最新章节_天蚕土豆_笔趣趣</title>
-    <meta name="keywords" content="万相之王"/>
-    <meta name="description" content="玄幻小说万相之王最新章节连载中，《万相之王》情节跌宕起伏、扣人心弦，是一本情节与文笔俱佳的玄幻小说，笔趣趣转载收集万相之王最新章节。"/>
-    <meta property="og:type" content="novel"/>
-    <meta property="og:title" content="万相之王"/>
-    <meta property="og:description" content="天地间，有万相。而我李洛，终将成为这万相之王。继《斗破苍穹》《武动乾坤》《大主宰》《元尊》之后，天蚕土豆又一部玄幻力作。"/>
-    <meta property="og:image" content="http://www.biququ.info/img/47771.jpg"/>
-    <meta property="og:novel:category" content="玄幻"/>
-    <meta property="og:novel:author" content="天蚕土豆"/>
-    <meta property="og:novel:book_name" content="万相之王"/>
-    <meta property="og:novel:read_url" content="http://www.biququ.info/html/47771/"/>
-    <meta property="og:url" content="http://www.biququ.info/html/47771/"/>
-    <meta property="og:novel:status" content="连载中"/>
-    <meta property="og:novel:update_time" content="2021-12-13 13:18:44"/>
-    <meta property="og:novel:latest_chapter_name" content="第三百四十二章 围攻"/>
-    <meta property="og:novel:latest_chapter_url" content="http://www.biququ.info/html/47771/59713342.html"/>
-    <link rel="alternate" media="only screen and(max-width: 640px)" href="http://m.biququ.info/html/47771/">
-    <link rel="stylesheet" type="text/css" href="/bqq/style.css"/>
-    <script type="text/javascript" src="https://cdn.staticfile.org/jquery/1.4.2/jquery.min.js"></script>
-    <script type="text/javascript" src="/bqq/style.js"></script>
+    <title>小说搜索</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            width: 100%;
+            background: rgb(240, 240, 240);
+        }
+
+        a:link {
+            color: rgb(41, 31, 193);
+            text-decoration: none;
+        }
+
+        a:visited {
+            color: rgb(41, 31, 193);
+        }
+
+        a:hover {
+            text-decoration: underline;
+            color: rgb(41, 31, 193);
+        }
+
+        .navitor {
+            width: 100%;
+            background: rgb(100, 100, 100);
+        }
+
+        .navitor .navitor-main {
+            margin-left: 20px;
+        }
+
+        /*    .navitor ul li a{display:inline-block;margin:14px 5px;color:rgb(255,255,255);} */
+        .navitor a:hover {
+            color: rgb(240, 240, 240);
+        }
+
+        .search {
+            width: 100%;
+            text-align: center;
+            padding: 20px 0px;
+            margin-top: 30px;
+        }
+
+        /* .search .search-main{} */
+        .search .search-main .keyword {
+            padding: 10px;
+            width: 360px;
+            outline: none;
+        }
+
+        .search .search-main button {
+            padding: 10px 30px;
+            border: 1px solid rgb(200, 200, 200);
+            background: rgb(100, 100, 100);
+            color: rgb(255, 255, 255);
+        }
+
+        .result-list {
+            padding: 80px 0px 0px 120px;
+        }
+
+        .result-list .result-item {
+            float: left;
+            clear: both;
+            margin: 10px 0px;
+        }
+
+        .result-list .result-item .result-game-item-pic {
+            float: left;
+            margin: 0px 10px 0px 0px;
+        }
+
+        .result-list .result-item .result-game-item-pic img {
+            width: 110px;
+            height: 150px;
+        }
+
+        .result-list .result-item .result-game-item-detail {
+            width: 100%;
+            font-size: 14px;
+        }
+
+        .result-list .result-item .result-game-item-detail .result-item-title {
+            font-size: 18px;
+        }
+
+        .result-list .result-item .result-game-item-detail .result-item-title a {
+            font-size: 18px;
+            text-decoration: none;
+            color: rgb(50, 50, 50);
+            font-weight: normal;
+        }
+
+        /* .result-list .result-item .result-game-item-detail .result-item-title a:visited{} */
+        /*  .result-list .result-item .result-game-item-detail .result-item-title a:hover{} */
+        .result-list .result-item .result-game-item-detail .result-game-item-info-tag {
+            line-height: 22px;
+        }
+
+        .search-result-page {
+            width: 100%;
+            float: left;
+            clear: both;
+            text-align: center;
+            padding: 20px 0px;
+        }
+
+        /*.search-result-page .search-result-page-main{} */
+        .search-result-page .search-result-page-main a {
+            display: inline-block;
+            padding: 6px 10px;
+            border: 1px solid rgb(100, 100, 100);
+            font-size: 14px;
+            margin: 0px 3px;
+            background: rgb(100, 100, 100);
+            color: rgb(255, 255, 255);
+        }
+
+        /*.search-result-page .search-result-page-main a:visited{} */
+        /* .search-result-page .search-result-page-main a:hover{} */
+        .navitor-main {
+            height: 40px;
+            overflow: hidden;
+            width: 980px;
+            margin: 10px auto auto;
+        }
+
+        .navitor-main ul {
+            list-style-type: none;
+        }
+
+        .navitor-main ul li {
+            float: left;
+            line-height: 44px;
+        }
+
+        .navitor-main ul li a {
+            color: #FFF;
+            font-size: 15px;
+            font-weight: 700;
+            padding: 0 14px;
+        }
+    </style>
+    <script type="text/javascript" src="https://apps.bdimg.com/libs/zepto/1.1.4/zepto.min.js"></script>
+    <script type="text/javascript" src="/js/common.js?v1"></script>
 </head>
 <body>
-<div id="wrapper">
-    <script>login();</script>
-    <div class="header">
-        <div class="header_logo"><a href="/">笔趣趣</a></div>
-        <div class="header_search">
-            <script>search();</script>
-        </div>
-        <div class="userpanel">
-            <script>banner();</script>
-        </div>
-    </div>
-    <div class="clear"></div>
-    <div class="nav">
+<div class="navitor">
+    <div class="navitor-main">
         <ul>
-            <li><a href="/">笔趣趣</a></li>
+            <li><a href="/">首页</a></li>
             <li><a href="/xuanhuan/">玄幻小说</a></li>
-            <li><a href="/xiuzhen/">修真小说</a></li>
+            <li><a href="/xianxia/">修真小说</a></li>
             <li><a href="/dushi/">都市小说</a></li>
-            <li><a href="/chuanyue/">穿越小说</a></li>
+            <li><a href="/lishi/">历史小说</a></li>
             <li><a href="/wangyou/">网游小说</a></li>
             <li><a href="/kehuan/">科幻小说</a></li>
-            <li><a href="/ciyuan/">次元小说</a></li>
             <li><a href="/yanqing/">言情小说</a></li>
-            <li><a href="/top/">排行榜单</a></li>
-            <li><a href="/wanben/">完本小说</a></li>
-            <li><a rel="nofollow" href="/bookcase.php">我的书架</a></li>
+            <li><a href="/qita/">其他小说</a></li>
+            <li><a href="/quanben/">全本小说</a></li>
+            <li><a href="/bookcase.html">临时书架</a></li>
         </ul>
     </div>
-    <div class="dahengfu">
-        <script type="text/javascript">listindex();</script>
-    </div>
-    <div class="box_con">
-        <div class="con_top">
-            <a href="/">笔趣趣</a> &gt; 万相之王最新章节列表
-        </div>
-        <div id="maininfo">
-            <div id="info">
-                <h1>万相之王</h1>
-                <p>作&nbsp;&nbsp;者：天蚕土豆</p>
-                <p>最后更新：2021-12-13 13:18:44</p>
-                <p>动&nbsp;&nbsp;作：
-                    <a rel="nofollow" href="javascript:;" onclick="addBookcaseShelf('47771');">加入书架</a>、<a
-                            rel="nofollow" href="#footer">直达底部</a>
-                </p>
-                <p>最新更新：<a href="/html/47771/59713342.html">第三百四十二章 围攻</a></p>
-            </div>
-            <div id="intro">天地间，有万相。而我李洛，终将成为这万相之王。继《斗破苍穹》《武动乾坤》《大主宰》《元尊》之后，天蚕土豆又一部玄幻力作。</div>
-        </div>
-        <div id="sidebar">
-            <div id="fmimg">
-                <img alt="万相之王" src="/img/47771.jpg" width="120" height="150"/>
-                <span class="b"></span>
-            </div>
-        </div>
-    </div>
-    <div class="read_tj">
-        热门推荐：<a href="/html/10309/">神魔之上</a><a href="/html/25018/">农门长姐有空间</a><a href="/html/25047/">海贼之祸害</a><a
-            href="/html/365/">异能小神农</a><a href="/html/8029/">前方高能</a><a href="/html/20388/">最强狂婿</a><a
-            href="/html/33070/">大奉打更人</a><a href="/html/32245/">今天学霸被超越了吗</a><a href="/html/9220/">暗黑系暖婚</a><a
-            href="/html/25157/">穿成赘婿文男主的前妻</a>
-
-    </div>
-    <div class="dahengfu">
-        <script>list1();</script>
-    </div>
-    <div class="box_con">
-        <div id="list">
-            <dl>
-                <dt>《万相之王》最新章节（提示：已启用缓存技术，最新章节可能会延时显示，登录书架即可实时查看。）</dt>
-                <dt>万相之王全部章节</dt>
-                <dd><a href="/html/47771/597131.html">第1章 我有三个相宫</a></dd>
-                <dd><a href="/html/47771/597132.html">第二章 不想退婚的未婚妻</a></dd>
-                <dd><a href="/html/47771/597133.html">第三章 想要退婚的李洛</a></dd>
-                <dd><a href="/html/47771/597134.html">第四章 金龙宝行</a></dd>
-                <dd><a href="/html/47771/597135.html">第五章 裴昊</a></dd>
-                <dd><a href="/html/47771/597136.html">第六章 后天之相</a></dd>
-                <dd><a href="/html/47771/597137.html">第七章 抉择</a></dd>
-                <dd><a href="/html/47771/597138.html">第八章 新的开始</a></dd>
-                <dd><a href="/html/47771/597139.html">第九章 府内议事</a></dd>
-                <dd><a href="/html/47771/5971310.html">第十章 白眼狼</a></dd>
-                <dd><a href="/html/47771/5971311.html">第十一章 能量引导术</a></dd>
-                <dd><a href="/html/47771/5971312.html">第十二章 相力修炼</a></dd>
-                <dd><a href="/html/47771/5971313.html">第十三章 无底洞的李洛</a></dd>
-                <dd><a href="/html/47771/5971314.html">第十四章 发怒的蔡薇</a></dd>
-                <dd><a href="/html/47771/5971315.html">第十五章 再回学府</a></dd>
-                <dd><a href="/html/47771/5971316.html">第十六章 相力树</a></dd>
-                <dd><a href="/html/47771/5971317.html">第十七章 竞争金叶</a></dd>
-                <dd><a href="/html/47771/5971318.html">第十八章 初露峥嵘</a></dd>
-                <dd><a href="/html/47771/5971319.html">第十九章 李洛的相</a></dd>
-                <dd><a href="/html/47771/5971320.html">第二十章 一穿三</a></dd>
-                <dd><a href="/html/47771/5971321.html">第二十一章 预考</a></dd>
-                <dd><a href="/html/47771/5971322.html">第二十二章 升六品的代价</a></dd>
-                <dd><a href="/html/47771/5971323.html">第二十三章 溪阳屋</a></dd>
-                <dd><a href="/html/47771/5971324.html">第二十四章 颜灵卿</a></dd>
-                <dd><a href="/html/47771/5971325.html">第二十五章 淬相师</a></dd>
-                <dd><a href="/html/47771/5971326.html">第二十六章 平平无奇的预考</a></dd>
-                <dd><a href="/html/47771/5971327.html">第二十七章 一品炼制室</a></dd>
-                <dd><a href="/html/47771/5971328.html">第二十八章 李洛的第一瓶灵水奇光</a></dd>
-                <dd><a href="/html/47771/5971329.html">第二十九章 孩子</a></dd>
-                <dd><a href="/html/47771/5971330.html">第三十章 虞浪</a></dd>
-                <dd><a href="/html/47771/5971331.html">第三十一章 遭遇强敌</a></dd>
-                <dd><a href="/html/47771/5971332.html">第三十二章 激将</a></dd>
-                <dd><a href="/html/47771/5971333.html">第三十三章 鸡蛋碰石头</a></dd>
-                <dd><a href="/html/47771/5971334.html">第三十四章 李洛的水镜术</a></dd>
-                <dd><a href="/html/47771/5971335.html">第三十五章 平局了</a></dd>
-                <dd><a href="/html/47771/5971336.html">第三十六章 一品的市场</a></dd>
-                <dd><a href="/html/47771/5971337.html">第三十七章 会长之争</a></dd>
-                <dd><a href="/html/47771/5971338.html">第三十八章 秘法源水</a></dd>
-                <dd><a href="/html/47771/5971339.html">第三十九章 加强版青碧灵水</a></dd>
-                <dd><a href="/html/47771/5971340.html">第四十章 狙击松子屋</a></dd>
-                <dd><a href="/html/47771/5971341.html">第四十一章 会长之位</a></dd>
-                <dd><a href="/html/47771/5971342.html">第四十二章 总督府</a></dd>
-                <dd><a href="/html/47771/5971343.html">第四十三章 六品水光相</a></dd>
-                <dd><a href="/html/47771/5971344.html">第四十四章 大考将临</a></dd>
-                <dd><a href="/html/47771/5971345.html">第四十五章 白灵园</a></dd>
-                <dd><a href="/html/47771/5971346.html">第四十六章 野路子的少府主</a></dd>
-                <dd><a href="/html/47771/5971347.html">第四十七章 被罚站的宗赋</a></dd>
-                <dd><a href="/html/47771/5971348.html">第四十八章 撞见师箜</a></dd>
-                <dd><a href="/html/47771/5971349.html">第四十九章 大考开幕</a></dd>
-                <dd><a href="/html/47771/5971350.html">第五十章 考试要动脑子</a></dd>
-                <dd><a href="/html/47771/5971351.html">第五十一章 三个零分</a></dd>
-                <dd><a href="/html/47771/5971352.html">第五十二章 鬼面魔藤树</a></dd>
-                <dd><a href="/html/47771/5971353.html">第五十三章 廉重</a></dd>
-                <dd><a href="/html/47771/5971354.html">第五十四章 钓鱼三人组</a></dd>
-                <dd><a href="/html/47771/5971355.html">第五十五章 迷雾</a></dd>
-                <dd><a href="/html/47771/5971356.html">第五十六章 引诱</a></dd>
-                <dd><a href="/html/47771/5971357.html">第五十七章 水芒术</a></dd>
-                <dd><a href="/html/47771/5971358.html">第五十八章 大吃一波</a></dd>
-                <dd><a href="/html/47771/5971359.html">第五十九章 白灵墟</a></dd>
-                <dd><a href="/html/47771/5971360.html">第六十章 险境</a></dd>
-                <dd><a href="/html/47771/5971361.html">第六十一章 围猎吕清儿</a></dd>
-                <dd><a href="/html/47771/5971362.html">第六十二章 冰玉手</a></dd>
-                <dd><a href="/html/47771/5971363.html">第六十三章 老套的英雄救美出现了</a></dd>
-                <dd><a href="/html/47771/5971364.html">第六十四章 人质</a></dd>
-                <dd><a href="/html/47771/5971365.html">第六十五章 我好了</a></dd>
-                <dd><a href="/html/47771/5971366.html">第六十六章 李洛很生气</a></dd>
-                <dd><a href="/html/47771/5971367.html">第六十七章 李洛要开始装了</a></dd>
-                <dd><a href="/html/47771/5971368.html">第六十八章 李洛想装大的</a></dd>
-                <dd><a href="/html/47771/5971369.html">第六十九章 大战师箜</a></dd>
-                <dd><a href="/html/47771/5971370.html">第七十章 李洛的箭</a></dd>
-                <dd><a href="/html/47771/5971371.html">第七十一章 不敢跳</a></dd>
-                <dd><a href="/html/47771/5971372.html">第七十二章 为什么要逼我？</a></dd>
-                <dd><a href="/html/47771/5971373.html">第七十三章 大考落幕</a></dd>
-                <dd><a href="/html/47771/5971374.html">第七十四章 宋秋雨</a></dd>
-                <dd><a href="/html/47771/5971375.html">第七十五章 你要刺杀我？</a></dd>
-                <dd><a href="/html/47771/5971376.html">第七十六章 宋家的外援</a></dd>
-                <dd><a href="/html/47771/5971377.html">第七十七章 相师三段</a></dd>
-                <dd><a href="/html/47771/5971378.html">第七十八章 老院长的报复</a></dd>
-                <dd><a href="/html/47771/5971379.html">第七十九章 假期</a></dd>
-                <dd><a href="/html/47771/5971380.html">第八十章 开始筹备第二道后天之相</a></dd>
-                <dd><a href="/html/47771/5971381.html">第八十一章 大祭</a></dd>
-                <dd><a href="/html/47771/5971382.html">第八十二章 再遇莫凌</a></dd>
-                <dd><a href="/html/47771/5971383.html">第八十三章 恩怨纠缠</a></dd>
-                <dd><a href="/html/47771/5971384.html">第八十四章 五品</a></dd>
-                <dd><a href="/html/47771/5971385.html">第八十五章 合力炼制</a></dd>
-                <dd><a href="/html/47771/5971386.html">第八十六章 逆转</a></dd>
-                <dd><a href="/html/47771/5971387.html">第八十七章 溪阳屋的再次升级</a></dd>
-                <dd><a href="/html/47771/5971388.html">第八十八章 准备离去</a></dd>
-                <dd><a href="/html/47771/5971389.html">第八十九章 洛岚府的局势</a></dd>
-                <dd><a href="/html/47771/5971390.html">第九十章 司秋颖</a></dd>
-                <dd><a href="/html/47771/5971391.html">第九十一章 再见姜青娥</a></dd>
-                <dd><a href="/html/47771/5971392.html">第九十二章 两人的特殊关系</a></dd>
-                <dd><a href="/html/47771/5971393.html">第九十三章 司天命</a></dd>
-                <dd><a href="/html/47771/5971394.html">第九十四章 仪式</a></dd>
-                <dd><a href="/html/47771/5971395.html">第九十五章 叛变的总会长</a></dd>
-                <dd><a href="/html/47771/5971396.html">第九十六章 溪阳屋总部</a></dd>
-                <dd><a href="/html/47771/5971397.html">上架感言。</a></dd>
-                <dd><a href="/html/47771/5971398.html">第九十七章 李洛要当总会长</a></dd>
-                <dd><a href="/html/47771/5971399.html">第九十八章 李洛的手腕</a></dd>
-                <dd><a href="/html/47771/59713100.html">第九十九章 想要辞职</a></dd>
-                <dd><a href="/html/47771/59713101.html">第一百章 宝行总部</a></dd>
-                <dd><a href="/html/47771/59713102.html">第一百零一章 都泽北轩</a></dd>
-                <dd><a href="/html/47771/59713103.html">第一百零二章 熊孩子</a></dd>
-                <dd><a href="/html/47771/59713104.html">第一百零三章 败家仔</a></dd>
-                <dd><a href="/html/47771/59713105.html">第一百零四章 鱼红溪，宫鸾羽</a></dd>
-                <dd><a href="/html/47771/59713106.html">第一百零五章 姜青娥的告诫</a></dd>
-                <dd><a href="/html/47771/59713107.html">第一百零六章 锻造木土相</a></dd>
-                <dd><a href="/html/47771/59713108.html">第一百零七章 相师境</a></dd>
-                <dd><a href="/html/47771/59713109.html">第一百零八章 出了问题</a></dd>
-                <dd><a href="/html/47771/59713110.html">第一百零九章 帝流浆</a></dd>
-                <dd><a href="/html/47771/59713111.html">第一百一十章 将分天地，也分龙虎</a></dd>
-                <dd><a href="/html/47771/59713112.html">第一百一十一章 新生实力榜</a></dd>
-                <dd><a href="/html/47771/59713113.html">第一百一十二章 颜值第一</a></dd>
-                <dd><a href="/html/47771/59713114.html">第一百一十三章 开学之日</a></dd>
-                <dd><a href="/html/47771/59713115.html">第一百一十四章 姐妹花与都泽红莲</a></dd>
-                <dd><a href="/html/47771/59713116.html">第一百一十五章 做小还是做大</a></dd>
-                <dd><a href="/html/47771/59713117.html">第一百一十六章 你想挑衅我？</a></dd>
-                <dd><a href="/html/47771/59713118.html">第一百一十七章 素心副院长</a></dd>
-                <dd><a href="/html/47771/59713119.html">第一百一十八章 沈金霄</a></dd>
-                <dd><a href="/html/47771/59713120.html">第一百一十九章 沈金霄的手段</a></dd>
-                <dd><a href="/html/47771/59713121.html">第一百二十章 被围剿了</a></dd>
-                <dd><a href="/html/47771/59713122.html">第一百二十一章 先声夺人</a></dd>
-                <dd><a href="/html/47771/59713123.html">第一百二十二章 围堵拦截</a></dd>
-                <dd><a href="/html/47771/59713124.html">第一百二十三章 钓鱼小森林</a></dd>
-                <dd><a href="/html/47771/59713125.html">第一百二十四章 对峙</a></dd>
-                <dd><a href="/html/47771/59713126.html">第一百二十五章 战都泽北轩</a></dd>
-                <dd><a href="/html/47771/59713127.html">第一百二十六章 继续战</a></dd>
-                <dd><a href="/html/47771/59713128.html">第一百二十八章 双相显露</a></dd>
-                <dd><a href="/html/47771/59713129.html">第一百二十九章 万树之缚与重水术</a></dd>
-                <dd><a href="/html/47771/59713130.html">第一百三十章 择师</a></dd>
-                <dd><a href="/html/47771/59713131.html">第一百三十一章 各人际遇</a></dd>
-                <dd><a href="/html/47771/59713132.html">第一百三十二章 择师结束</a></dd>
-                <dd><a href="/html/47771/59713133.html">第一百三十三章 宫神钧</a></dd>
-                <dd><a href="/html/47771/59713134.html">第一百三十四章 第二步</a></dd>
-                <dd><a href="/html/47771/59713135.html">第一百三十五章 郗婵导师</a></dd>
-                <dd><a href="/html/47771/59713136.html">第一百三十六章 异类</a></dd>
-                <dd><a href="/html/47771/59713137.html">第一百三十七章 队长</a></dd>
-                <dd><a href="/html/47771/59713138.html">第一百三十八章 各个小组</a></dd>
-                <dd><a href="/html/47771/59713139.html">第一百三十九章 我的队友</a></dd>
-                <dd><a href="/html/47771/59713140.html">第一百四十章 第一次授课</a></dd>
-                <dd><a href="/html/47771/59713141.html">第一百四十一章 算计</a></dd>
-                <dd><a href="/html/47771/59713142.html">第一百四十二章 相曦</a></dd>
-                <dd><a href="/html/47771/59713143.html">第一百四十三章 相力树下</a></dd>
-                <dd><a href="/html/47771/59713144.html">第一百四十四章 李洛的建议</a></dd>
-                <dd><a href="/html/47771/59713145.html">第一百四十五章 第一次上树</a></dd>
-                <dd><a href="/html/47771/59713146.html">第一百四十六章 李洛的持久力</a></dd>
-                <dd><a href="/html/47771/59713147.html">第一百四十七章 花种</a></dd>
-                <dd><a href="/html/47771/59713148.html">第一百四十八章 缠人的王鹤鸠</a></dd>
-                <dd><a href="/html/47771/59713149.html">第一百四十九章 人格魅力</a></dd>
-                <dd><a href="/html/47771/59713150.html">第一百五十章 学府积分</a></dd>
-                <dd><a href="/html/47771/59713151.html">第一百五十一章 培训</a></dd>
-                <dd><a href="/html/47771/59713152.html">第一百五十二章 小队的定位</a></dd>
-                <dd><a href="/html/47771/59713153.html">第一百五十三章 弹劾</a></dd>
-                <dd><a href="/html/47771/59713154.html">第一百五十四章 超级小富婆</a></dd>
-                <dd><a href="/html/47771/59713155.html">第一百五十五章 坟头插香</a></dd>
-                <dd><a href="/html/47771/59713156.html">第一百五十六章 偶然的残留物</a></dd>
-                <dd><a href="/html/47771/59713157.html">第一百五十七章 白萌萌的请求</a></dd>
-                <dd><a href="/html/47771/59713158.html">第一百五十八章 艰难的生活</a></dd>
-                <dd><a href="/html/47771/59713159.html">第一百五十九章 两队的训练</a></dd>
-                <dd><a href="/html/47771/59713160.html">第一百六十章 两女对阵</a></dd>
-                <dd><a href="/html/47771/59713161.html">第一百六十一章 小队初战</a></dd>
-                <dd><a href="/html/47771/59713162.html">第一百六十二章 风矢铁骑</a></dd>
-                <dd><a href="/html/47771/59713163.html">第一百六十三章 聚风式</a></dd>
-                <dd><a href="/html/47771/59713164.html">第一百六十四章 总督小队</a></dd>
-                <dd><a href="/html/47771/59713165.html">第一百六十五章 队名</a></dd>
-                <dd><a href="/html/47771/59713166.html">第一百六十六章 排位战开启</a></dd>
-                <dd><a href="/html/47771/59713167.html">第一百六十七章 被围攻了</a></dd>
-                <dd><a href="/html/47771/59713168.html">第一百六十八章 反击</a></dd>
-                <dd><a href="/html/47771/59713169.html">第一百六十九章 遭遇</a></dd>
-                <dd><a href="/html/47771/59713170.html">第一百七十章 汇合</a></dd>
-                <dd><a href="/html/47771/59713171.html">第一百七十一章 设局</a></dd>
-                <dd><a href="/html/47771/59713172.html">第一百七十二章 破局</a></dd>
-                <dd><a href="/html/47771/59713173.html">第一百七十三章 我也喜欢</a></dd>
-                <dd><a href="/html/47771/59713174.html">第一百七十四章 舒坦没？</a></dd>
-                <dd><a href="/html/47771/59713175.html">第一百七十五章 亏本了</a></dd>
-                <dd><a href="/html/47771/59713176.html">第一百七十六章 好戏开场</a></dd>
-                <dd><a href="/html/47771/59713177.html">第一百七十七章 大战开幕</a></dd>
-                <dd><a href="/html/47771/59713178.html">第一百七十八章 相术的配合</a></dd>
-                <dd><a href="/html/47771/59713179.html">第一百七十九章 姜青娥与长公主</a></dd>
-                <dd><a href="/html/47771/59713180.html">第一百八十章 双相之力</a></dd>
-                <dd><a href="/html/47771/59713181.html">第一百八十一章 翠绿木箭</a></dd>
-                <dd><a href="/html/47771/59713182.html">第一百八十二章 长公主的邀请</a></dd>
-                <dd><a href="/html/47771/59713183.html">第一百八十三章 日落</a></dd>
-                <dd><a href="/html/47771/59713184.html">第一百八十四章 积分第一</a></dd>
-                <dd><a href="/html/47771/59713185.html">第一百八十五章 金霄计划</a></dd>
-                <dd><a href="/html/47771/59713186.html">第一百八十六章 黑袍封侯</a></dd>
-                <dd><a href="/html/47771/59713187.html">第一百八十七章 兑换帝流浆</a></dd>
-                <dd><a href="/html/47771/59713188.html">第一百八十八章 生日</a></dd>
-                <dd><a href="/html/47771/59713189.html">第一百八十九章 不省心</a></dd>
-                <dd><a href="/html/47771/59713190.html">第一百九十章 十万积分</a></dd>
-                <dd><a href="/html/47771/59713191.html">第一百九十一章 地宫</a></dd>
-                <dd><a href="/html/47771/59713192.html">第一百九十二章 秘辛</a></dd>
-                <dd><a href="/html/47771/59713193.html">第一百九十三章 目标是壮大洛岚府</a></dd>
-                <dd><a href="/html/47771/59713194.html">第一百九十四章 晋级规划</a></dd>
-                <dd><a href="/html/47771/59713195.html">第一百九十五章 总部前</a></dd>
-                <dd><a href="/html/47771/59713196.html">第一百九十六章 全部吃下</a></dd>
-                <dd><a href="/html/47771/59713197.html">第一百九十七章 毁掉</a></dd>
-                <dd><a href="/html/47771/59713198.html">第一百九十八章 考核</a></dd>
-                <dd><a href="/html/47771/59713199.html">第一百九十九章 请帖</a></dd>
-                <dd><a href="/html/47771/59713200.html">第两百章 坚体</a></dd>
-                <dd><a href="/html/47771/59713201.html">第两百零一章 摧残</a></dd>
-                <dd><a href="/html/47771/59713202.html">第两百零二章 金龙秘钥</a></dd>
-                <dd><a href="/html/47771/59713203.html">第两百零三章 庆贺</a></dd>
-                <dd><a href="/html/47771/59713204.html">第两百零四章 俊杰云集</a></dd>
-                <dd><a href="/html/47771/59713205.html">第两百零五章 祝煊</a></dd>
-                <dd><a href="/html/47771/59713206.html">第两百零六章 秘钥争夺</a></dd>
-                <dd><a href="/html/47771/59713207.html">第两百零七章 青罡风</a></dd>
-                <dd><a href="/html/47771/59713208.html">第两百零八章 顺势</a></dd>
-                <dd><a href="/html/47771/59713209.html">第两百零九章 祝煊的要求</a></dd>
-                <dd><a href="/html/47771/59713210.html">第两百一十章 工具人</a></dd>
-                <dd><a href="/html/47771/59713211.html">第两百一十一章 尝试治疗</a></dd>
-                <dd><a href="/html/47771/59713212.html">第两百一十二章 治疗结果</a></dd>
-                <dd><a href="/html/47771/59713213.html">第两百一十三章 更进一步的关系</a></dd>
-                <dd><a href="/html/47771/59713214.html">第两百一十四章 不行了</a></dd>
-                <dd><a href="/html/47771/59713215.html">第两百一十五章 援手</a></dd>
-                <dd><a href="/html/47771/59713216.html">第两百一十六章 第三次考核</a></dd>
-                <dd><a href="/html/47771/59713217.html">第两百一十七章 鸿泥灵水</a></dd>
-                <dd><a href="/html/47771/59713218.html">第两百一十八章 礼包有毒</a></dd>
-                <dd><a href="/html/47771/59713219.html">第两百一十九章 应对手段</a></dd>
-                <dd><a href="/html/47771/59713220.html">第两百二十章 抢购药材</a></dd>
-                <dd><a href="/html/47771/59713221.html">第两百二十一章 宁阕副会长</a></dd>
-                <dd><a href="/html/47771/59713222.html">第两百二十二章 鱼红溪的提议</a></dd>
-                <dd><a href="/html/47771/59713223.html">第两百二十三章 解毒药剂</a></dd>
-                <dd><a href="/html/47771/59713224.html">第两百二十四章 半成品</a></dd>
-                <dd><a href="/html/47771/59713225.html">第两百二十五章 李洛出手了</a></dd>
-                <dd><a href="/html/47771/59713226.html">第两百二十六章 解毒</a></dd>
-                <dd><a href="/html/47771/59713227.html">第两百二十七章 各方关注</a></dd>
-                <dd><a href="/html/47771/59713228.html">第两百二十八章 波澜落幕</a></dd>
-                <dd><a href="/html/47771/59713229.html">第两百二十九章 裴昊的踪迹</a></dd>
-                <dd><a href="/html/47771/59713230.html">第两百三十章 夜袭</a></dd>
-                <dd><a href="/html/47771/59713231.html">第两百三十一章 供奉长老</a></dd>
-                <dd><a href="/html/47771/59713232.html">第两百三十二章 半年后的压力</a></dd>
-                <dd><a href="/html/47771/59713233.html">第两百三十三章 所谓暗窟</a></dd>
-                <dd><a href="/html/47771/59713234.html">第两百三十四章 异类的情报</a></dd>
-                <dd><a href="/html/47771/59713235.html">第两百三十五章 意见不合</a></dd>
-                <dd><a href="/html/47771/59713236.html">第两百三十六章 四星级配方</a></dd>
-                <dd><a href="/html/47771/59713237.html">第两百三十七章 夜承影</a></dd>
-                <dd><a href="/html/47771/59713238.html">第两百三十八章 暗窟开启</a></dd>
-                <dd><a href="/html/47771/59713239.html">第两百三十九章 选择</a></dd>
-                <dd><a href="/html/47771/59713240.html">第两百四十章 各寻合作</a></dd>
-                <dd><a href="/html/47771/59713241.html">第两百四十一章 吾心无惧</a></dd>
-                <dd><a href="/html/47771/59713242.html">第两百四十二章 十三号净化据点</a></dd>
-                <dd><a href="/html/47771/59713243.html">第两百四十三章 异心</a></dd>
-                <dd><a href="/html/47771/59713244.html">第两百四十四章 惑心关</a></dd>
-                <dd><a href="/html/47771/59713245.html">第两百四十五章 手蛛与路线</a></dd>
-                <dd><a href="/html/47771/59713246.html">第两百四十六章 暗灵潭</a></dd>
-                <dd><a href="/html/47771/59713247.html">第两百四十七章 小队的独立任务</a></dd>
-                <dd><a href="/html/47771/59713248.html">第两百四十八章 眼怪异类</a></dd>
-                <dd><a href="/html/47771/59713249.html">第两百四十九章 异类相食</a></dd>
-                <dd><a href="/html/47771/59713250.html">第两百五十章 激活净化塔</a></dd>
-                <dd><a href="/html/47771/59713251.html">第两百五十一章 剥离术</a></dd>
-                <dd><a href="/html/47771/59713252.html">第两百五十二章 完美表现</a></dd>
-                <dd><a href="/html/47771/59713253.html">第两百五十三章 禁区外</a></dd>
-                <dd><a href="/html/47771/59713254.html">第两百五十四章 暗灵叶</a></dd>
-                <dd><a href="/html/47771/59713255.html">第两百五十五章 争夺</a></dd>
-                <dd><a href="/html/47771/59713256.html">第两百五十六章 炫夫狂魔</a></dd>
-                <dd><a href="/html/47771/59713257.html">第两百五十七章 三十八梯</a></dd>
-                <dd><a href="/html/47771/59713258.html">第两百五十八章 冲击极限</a></dd>
-                <dd><a href="/html/47771/59713259.html">第两百五十九章 连跨两级</a></dd>
-                <dd><a href="/html/47771/59713260.html">第两百六十章 薅一把</a></dd>
-                <dd><a href="/html/47771/59713261.html">第两百六十一章 李洛的生意头脑</a></dd>
-                <dd><a href="/html/47771/59713262.html">第两百六十二章 李洛的心思</a></dd>
-                <dd><a href="/html/47771/59713263.html">第两百六十三章 禁区内的变故</a></dd>
-                <dd><a href="/html/47771/59713264.html">第两百六十四章 外来的异类</a></dd>
-                <dd><a href="/html/47771/59713265.html">第两百六十五章 消失的异类</a></dd>
-                <dd><a href="/html/47771/59713266.html">第两百六十六章 墙壁上的笑脸</a></dd>
-                <dd><a href="/html/47771/59713267.html">第两百六十七章 恶念种子</a></dd>
-                <dd><a href="/html/47771/59713268.html">第两百六十八章 选择</a></dd>
-                <dd><a href="/html/47771/59713269.html">第两百六十九章 据点传送塔</a></dd>
-                <dd><a href="/html/47771/59713270.html">第两百七十章 争议</a></dd>
-                <dd><a href="/html/47771/59713271.html">第两百七十一章 总指挥</a></dd>
-                <dd><a href="/html/47771/59713272.html">第两百七十二章 救援</a></dd>
-                <dd><a href="/html/47771/59713273.html">第两百七十三章 深层次污染</a></dd>
-                <dd><a href="/html/47771/59713274.html">第两百七十四章 红莲小队归来</a></dd>
-                <dd><a href="/html/47771/59713275.html">第两百七十五章 自取其辱</a></dd>
-                <dd><a href="/html/47771/59713276.html">第两百七十六章 天灾来临</a></dd>
-                <dd><a href="/html/47771/59713277.html">第两百七十七章 异类攻城</a></dd>
-                <dd><a href="/html/47771/59713278.html">第两百七十八章 恶念反噬</a></dd>
-                <dd><a href="/html/47771/59713279.html">第两百七十九章 笑脸魔的作法</a></dd>
-                <dd><a href="/html/47771/59713280.html">第两百八十章 机会</a></dd>
-                <dd><a href="/html/47771/59713281.html">第两百八十一章 斩首</a></dd>
-                <dd><a href="/html/47771/59713282.html">第两百八十二章 绝境</a></dd>
-                <dd><a href="/html/47771/59713283.html">第两百八十三章 李洛的计划</a></dd>
-                <dd><a href="/html/47771/59713284.html">第两百八十四章 封镇</a></dd>
-                <dd><a href="/html/47771/59713285.html">第两百八十五章 院长庞千源</a></dd>
-                <dd><a href="/html/47771/59713286.html">第两百八十六章 引兽出山</a></dd>
-                <dd><a href="/html/47771/59713287.html">第两百八十七章 狐假虎威</a></dd>
-                <dd><a href="/html/47771/59713288.html">第两百八十八章 争分夺秒</a></dd>
-                <dd><a href="/html/47771/59713289.html">第两百八十九章 救兵至</a></dd>
-                <dd><a href="/html/47771/59713290.html">第两百九十章 孤独向前的骑士</a></dd>
-                <dd><a href="/html/47771/59713291.html">第两百九十一章 英雄</a></dd>
-                <dd><a href="/html/47771/59713292.html">第两百九十二章 两虎相斗</a></dd>
-                <dd><a href="/html/47771/59713293.html">第两百九十三章 青鸾</a></dd>
-                <dd><a href="/html/47771/59713294.html">第两百九十四章 长公主赶至</a></dd>
-                <dd><a href="/html/47771/59713295.html">第两百九十五章 封印三尾巨兽</a></dd>
-                <dd><a href="/html/47771/59713296.html">第两百九十六章 暗红镯子</a></dd>
-                <dd><a href="/html/47771/59713297.html">第两百九十七章 封印宝具</a></dd>
-                <dd><a href="/html/47771/59713298.html">第两百九十八章 院长的要求</a></dd>
-                <dd><a href="/html/47771/59713299.html">第两百九十九章 天祀咒</a></dd>
-                <dd><a href="/html/47771/59713300.html">第三百章 恶念黑河</a></dd>
-                <dd><a href="/html/47771/59713301.html">第三百零一章 传送阵开</a></dd>
-                <dd><a href="/html/47771/59713302.html">第三百零二章 二师赶至</a></dd>
-                <dd><a href="/html/47771/59713303.html">第两百零三章 仪式</a></dd>
-                <dd><a href="/html/47771/59713304.html">第三百零四章 拱火</a></dd>
-                <dd><a href="/html/47771/59713305.html">第三百零五章 黎碧</a></dd>
-                <dd><a href="/html/47771/59713306.html">第三百零六章 颜值要求</a></dd>
-                <dd><a href="/html/47771/59713307.html">第三百零七章 李洛的海口</a></dd>
-                <dd><a href="/html/47771/59713308.html">第三百零八章 走后门</a></dd>
-                <dd><a href="/html/47771/59713309.html">第三百零九章 大宝贝白萌萌</a></dd>
-                <dd><a href="/html/47771/59713310.html">第三百一十章 萌蝶灵水</a></dd>
-                <dd><a href="/html/47771/59713311.html">第三百一十一章 尴尬时刻</a></dd>
-                <dd><a href="/html/47771/59713312.html">第三百一十二章 相力的灵性</a></dd>
-                <dd><a href="/html/47771/59713313.html">第三百一十三章 七品水光相</a></dd>
-                <dd><a href="/html/47771/59713314.html">第三百一十四章 邀请会</a></dd>
-                <dd><a href="/html/47771/59713315.html">第三百一十五章 韩植</a></dd>
-                <dd><a href="/html/47771/59713316.html">第三百一十六章 凌照影</a></dd>
-                <dd><a href="/html/47771/59713317.html">第三百一十七章 砍死你</a></dd>
-                <dd><a href="/html/47771/59713318.html">第三百一十八章 与五品淬相师竞技</a></dd>
-                <dd><a href="/html/47771/59713319.html">第三百一十九章 炼制成功</a></dd>
-                <dd><a href="/html/47771/59713320.html">第三百二十章 要搞事</a></dd>
-                <dd><a href="/html/47771/59713321.html">第三百二十一章 都给我震惊</a></dd>
-                <dd><a href="/html/47771/59713322.html">第三百二十二章 六成六</a></dd>
-                <dd><a href="/html/47771/59713323.html">第三百二十三章 管够</a></dd>
-                <dd><a href="/html/47771/59713324.html">第三百二十四章 香饽饽的溪阳屋</a></dd>
-                <dd><a href="/html/47771/59713325.html">第三百二十五章 姐弟</a></dd>
-                <dd><a href="/html/47771/59713326.html">第三百二十六章 庆功会</a></dd>
-                <dd><a href="/html/47771/59713327.html">第三百二十七章 流氓</a></dd>
-                <dd><a href="/html/47771/59713328.html">第三百二十八章 与长公主同乘</a></dd>
-                <dd><a href="/html/47771/59713329.html">第三百二十九章 野心</a></dd>
-                <dd><a href="/html/47771/59713330.html">第三百三十章 交心之言</a></dd>
-                <dd><a href="/html/47771/59713331.html">第三百三十一章 犒劳</a></dd>
-                <dd><a href="/html/47771/59713332.html">第三百三十二章 林梭</a></dd>
-                <dd><a href="/html/47771/59713333.html">第三百三十三章 空间球</a></dd>
-                <dd><a href="/html/47771/59713334.html">第三百三十四章 道金与多宝池</a></dd>
-                <dd><a href="/html/47771/59713335.html">第三百三十五章 存相秘术</a></dd>
-                <dd><a href="/html/47771/59713336.html">第三百三十六章 相泡术</a></dd>
-                <dd><a href="/html/47771/59713337.html">第三百三十七章 进入</a></dd>
-                <dd><a href="/html/47771/59713338.html">第三百三十八章 金龙道场</a></dd>
-                <dd><a href="/html/47771/59713339.html">第三百三十九章 这么个情况</a></dd>
-                <dd><a href="/html/47771/59713340.html">第三百四十章 最毒的打</a></dd>
-                <dd><a href="/html/47771/59713341.html">第三百四十一章 情绪复杂的吉隼</a></dd>
-                <dd><a href="/html/47771/59713342.html">第三百四十二章 围攻</a></dd>
-
-            </dl>
-        </div>
-    </div>
-
-
-    <div class="read_tj">
-        <b>相关推荐：</b>
-
-        <a href="/html/47766/">成为了道医之后</a><a href="/html/47767/">东京吃货</a><a href="/html/47768/">西游签到五十年，开局斩猴王</a><a
-            href="/html/47769/">签到万物三千年</a><a href="/html/47770/">白手当家</a><a href="/html/47772/">超神学院之永恒虚空</a><a
-            href="/html/47773/">网游大相师</a><a href="/html/47774/">我在荒岛上直播修仙</a><a href="/html/47775/">我在木叶隔壁玩修真</a><a
-            href="/html/47776/">诛仙2轮回</a>
-
-    </div>
-    <div id="footer" name="footer">
-        <div class="footer_cont">
-            <p> 《万相之王》情节跌宕起伏、扣人心弦，是一本情节与文笔俱佳的玄幻小说，笔趣趣转载收集万相之王最新章节。</p>
-            <p>本站所有小说为转载作品，所有章节均由网友上传，转载至本站只是为了宣传本书让更多读者欣赏。</p>
-            <p> Copyright 2017 笔趣趣 www.biququ.info All Rights Reserved.</p>
-        </div>
-    </div>
-    <script>footer();</script>
 </div>
+<!--复制到这里-->
+<div class="search">
+    <div class="search-main">
+        <input type="text" name="q" id="keyword" class="keyword" value="请输入书名或作者搜索"
+               onblur="if (value ==''){value='请输入书名或作者搜索'}" onfocus="if (value =='请输入书名或作者搜索'){value =''}"/>
+        <button type="button" name="search-submit" id="search-submit">搜索小说</button>
+    </div>
+</div>
+<div class="result-list">
+
+    <div class="result-item result-game-item">
+        <div class="result-game-item-pic">
+            <a cpos="img" href="/book/56258/" class="result-game-item-pic-link" target="_blank"
+               style="width:110px;height:150px;">
+                <img src="https://www.81zw.com/files/article/image/56/56258/56258s.jpg"
+                     class="result-game-item-pic-link-img" onerror="$(this).attr('src', '/images/nocover.jpg')">
+            </a>
+        </div>
+        <div class="result-game-item-detail">
+            <h3 class="result-item-title result-game-item-title">
+                <a cpos="title" href="/book/56258/" title="万相之王" class="result-game-item-title-link" target="_blank">
+                    <span>万相之王</span>
+                </a>
+            </h3>
+            <p class="result-game-item-desc">天地间，有万相。而我李洛，终将成为这万相之王。继《斗破苍穹》《武动乾坤》《大主宰》《元尊》之后，天蚕土豆又一部玄幻力作。</p>
+            <div class="result-game-item-info">
+                <p class="result-game-item-info-tag">
+                    <span class="result-game-item-info-tag-title preBold">作者：</span>
+                    <span>天蚕土豆</span>
+                </p>
+                <p class="result-game-item-info-tag">
+                    <span class="result-game-item-info-tag-title preBold">类型：</span>
+                    <span class="result-game-item-info-tag-title">玄幻小说</span>
+                </p>
+                <p class="result-game-item-info-tag">
+                    <span class="result-game-item-info-tag-title preBold">更新时间：</span>
+                    <span class="result-game-item-info-tag-title">2021-12-14 12:48:38</span>
+                </p>
+                <p class="result-game-item-info-tag">
+                    <span class="result-game-item-info-tag-title preBold">最新章节：</span>
+                    <a cpos="newchapter" href="/book/56258/830319.html" class="result-game-item-info-tag-item"
+                       target="_blank">第三百四十三章 金龙气</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="result-item result-game-item">
+        <div class="result-game-item-pic">
+            <a cpos="img" href="/ebook/3608/" class="result-game-item-pic-link" target="_blank"
+               style="width:110px;height:150px;">
+                <img src="https://www.81zw.com/files/article/image/56/56258/56258s.jpg"
+                     class="result-game-item-pic-link-img" onerror="$(this).attr('src', '/images/nocover.jpg')">
+            </a>
+        </div>
+        <div class="result-game-item-detail">
+            <h3 class="result-item-title result-game-item-title">
+                <a cpos="title" href="/ebook/3608/" title="万相之王李洛" class="result-game-item-title-link" target="_blank">
+                    <span>万相之王李洛</span>
+                </a>
+            </h3>
+            <p class="result-game-item-desc">天地间，有万相。而我李洛，终将成为这万相之王。继《斗破苍穹》《武动乾坤》《大主宰》《元尊》之后，天蚕土豆又一部玄幻力作。</p>
+            <div class="result-game-item-info">
+                <p class="result-game-item-info-tag">
+                    <span class="result-game-item-info-tag-title preBold">作者：</span>
+                    <span>天蚕土豆新书</span>
+                </p>
+                <p class="result-game-item-info-tag">
+                    <span class="result-game-item-info-tag-title preBold">类型：</span>
+                    <span class="result-game-item-info-tag-title">玄幻小说</span>
+                </p>
+                <p class="result-game-item-info-tag">
+                    <span class="result-game-item-info-tag-title preBold">更新时间：</span>
+                    <span class="result-game-item-info-tag-title">2021-12-14 12:48:38</span>
+                </p>
+                <p class="result-game-item-info-tag">
+                    <span class="result-game-item-info-tag-title preBold">最新章节：</span>
+                    <a cpos="newchapter" href="/ebook/3608/830319.html" class="result-game-item-info-tag-item"
+                       target="_blank">第三百四十三章 金龙气</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="result-item result-game-item">
+        <div class="result-game-item-pic">
+            <a cpos="img" href="/ebook/3706/" class="result-game-item-pic-link" target="_blank"
+               style="width:110px;height:150px;">
+                <img src="https://www.81zw.com/files/article/image/56/56258/56258s.jpg"
+                     class="result-game-item-pic-link-img" onerror="$(this).attr('src', '/images/nocover.jpg')">
+            </a>
+        </div>
+        <div class="result-game-item-detail">
+            <h3 class="result-item-title result-game-item-title">
+                <a cpos="title" href="/ebook/3706/" title="万相之王天蚕土豆" class="result-game-item-title-link"
+                   target="_blank">
+                    <span>万相之王天蚕土豆</span>
+                </a>
+            </h3>
+            <p class="result-game-item-desc">天地间，有万相。而我李洛，终将成为这万相之王。继《斗破苍穹》《武动乾坤》《大主宰》《元尊》之后，天蚕土豆又一部玄幻力作。</p>
+            <div class="result-game-item-info">
+                <p class="result-game-item-info-tag">
+                    <span class="result-game-item-info-tag-title preBold">作者：</span>
+                    <span>天蚕土豆</span>
+                </p>
+                <p class="result-game-item-info-tag">
+                    <span class="result-game-item-info-tag-title preBold">类型：</span>
+                    <span class="result-game-item-info-tag-title">玄幻小说</span>
+                </p>
+                <p class="result-game-item-info-tag">
+                    <span class="result-game-item-info-tag-title preBold">更新时间：</span>
+                    <span class="result-game-item-info-tag-title">2021-12-14 12:48:38</span>
+                </p>
+                <p class="result-game-item-info-tag">
+                    <span class="result-game-item-info-tag-title preBold">最新章节：</span>
+                    <a cpos="newchapter" href="/ebook/3706/830319.html" class="result-game-item-info-tag-item"
+                       target="_blank">第三百四十三章 金龙气</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="search-result-page">
+    <div class="search-result-page-main">
+
+
+        <a href="/search.php?q=%E4%B8%87%E7%9B%B8%E4%B9%8B%E7%8E%8B&p=1" title="第1页" class="current">1</a>
+
+
+    </div>
+</div>
+<script type="text/javascript">
+    $(function () {
+        $('#search-submit').on('click', function () {
+            var url = '/search.php?q={key}'.replace('{key}', $('#keyword').val());
+            window.location = url;
+
+        });
+    });
+</script>
+<script>footer();</script>
 </body>
 </html>
-

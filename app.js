@@ -17,6 +17,7 @@ const yongsheng = require('./src/routes/yongsheng')
 const xbiqupao = require('./src/routes/xbiqupao')
 const xiaoxiang = require('./src/routes/xiaoxiang')
 const biququ = require('./src/routes/biququ')
+const bayi = require('./src/routes/bayi')
 
 // error handler
 onerror(app)
@@ -60,6 +61,7 @@ app.use(yongsheng.routes(), yongsheng.allowedMethods())
 app.use(xbiqupao.routes(), xbiqupao.allowedMethods())
 app.use(xiaoxiang.routes(), xiaoxiang.allowedMethods())
 app.use(biququ.routes(), biququ.allowedMethods())
+app.use(bayi.routes(), bayi.allowedMethods())
 
 // error-handling
 app.on('error', (err, ctx) => {
