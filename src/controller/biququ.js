@@ -17,7 +17,7 @@ const search = async (name) => {
         if (i>0){
             const obj = {}
             obj.menuUrl = $(el).find('.s2 a').attr('href')
-            obj.name = $(el).find('.s2 a font').text()
+            obj.name = $(el).find('.s2 a').text()
             obj.author = $(el).find('.s4').text()
             obj.from = '笔趣趣'
             obj.imgUrl =  ''

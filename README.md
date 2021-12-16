@@ -1,2 +1,27 @@
 # bookServer
 ## nodejs 抓取小说网站信息
+
+搜索地址
+
+
+网站      |搜索图书  
+-------- | ----- 
+笔趣阁 |[搜索万相之王](http://zhangmuchen.top:8000/biquge/search?name=万相之王)
+笔趣趣 |[搜索万相之王](http://zhangmuchen.top:8000/biququ/search?name=万相之王)
+八一小说 |[搜索万相之王](http://zhangmuchen.top:8000/bayi/search?name=万相之王)
+丹书铁券 |[搜索万相之王](http://zhangmuchen.top:8000/danshu/search?name=万相之王)
+番茄 |[搜索万相之王](http://zhangmuchen.top:8000/fanqie/search?name=万相之王)
+无敌小说 |[搜索万相之王](http://zhangmuchen.top:8000/wudi/search?name=万相之王)
+新笔趣阁 |[搜索万相之王](http://zhangmuchen.top:8000/xbiquge/search?name=万相之王)
+新笔趣泡 |[搜索万相之王](http://zhangmuchen.top:8000/xbiqupao/search?name=万相之王)
+西红柿 |[搜索万相之王](http://zhangmuchen.top:8000/xihongshi/search?name=万相之王)
+永生文学 |[搜索万相之王](http://zhangmuchen.top:8000/yongsheng/search?name=万相之王)
+
+
+
+
+
+
+网站 |  打开目录 | 打开详情
+-------- | ----- |-----
+笔趣阁 |[目录](http://zhangmuchen.top:8000/getMenuList?bookUrl=/book/19746/&type=笔趣阁)|[详情](http://zhangmuchen.top:8000/getBookDetail?detailUrl=/book/19746/1.html&type=笔趣阁)
