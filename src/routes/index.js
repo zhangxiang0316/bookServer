@@ -8,6 +8,7 @@ const yongsheng = require('../controller/yongsheng')
 const xbiqupao = require('../controller/xbiqupao')
 const biququ = require('../controller/biququ')
 const bayi = require('../controller/bayi')
+const danshu = require('../controller/danshu')
 
 router.get('/getMenuList', async (ctx, next) => {
     const bookUrl = ctx.query.bookUrl
@@ -42,6 +43,9 @@ router.get('/getMenuList', async (ctx, next) => {
             break
         case "八一小说":
             menuDetail = await bayi.getMenuList(ctx.query.bookUrl)
+            break
+        case "丹书铁卷":
+            menuDetail = await danshu.getMenuList(ctx.query.bookUrl)
             break
         default:
             break
@@ -82,6 +86,9 @@ router.get('/getBookDetail', async (ctx, next) => {
             break
         case '八一小说':
             bookDetail = await bayi.getBookDetail(detailUrl)
+            break
+        case '丹书铁卷':
+            bookDetail = await danshu.getBookDetail(detailUrl)
             break
         default:
             break
