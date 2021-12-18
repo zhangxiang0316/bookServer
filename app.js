@@ -20,6 +20,8 @@ const biququ = require('./src/routes/biququ')
 const bayi = require('./src/routes/bayi')
 const danshu = require('./src/routes/danshu')
 const sanz = require('./src/routes/sanz')
+const moyuan = require('./src/routes/moyuan')
+const souxiaoshuo = require('./src/routes/souxiaoshuo')
 
 // error handler
 onerror(app)
@@ -66,6 +68,8 @@ app.use(biququ.routes(), biququ.allowedMethods())
 app.use(bayi.routes(), bayi.allowedMethods())
 app.use(danshu.routes(), danshu.allowedMethods())
 app.use(sanz.routes(), sanz.allowedMethods())
+app.use(moyuan.routes(), moyuan.allowedMethods())
+app.use(souxiaoshuo.routes(), souxiaoshuo.allowedMethods())
 
 // error-handling
 app.on('error', (err, ctx) => {
