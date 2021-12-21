@@ -17,6 +17,12 @@ const setFile = (bookName, detailName) => {
     return path.resolve(__dirname, `E:/book/${bookName}/${detailName}`)
 }
 
+
+const getFile = async () => {
+    const file = fs.readFileSync( path.resolve(__dirname, './xbiquge.js'))
+    return file.toString()
+}
+
 /**
  * 根据名称作者查询图书
  * @param name
@@ -31,8 +37,7 @@ const search = async () => {
     //     bookList.push({name: $(el).find('a').text(), url: $(el).find('a').attr('href')})
     // })
     $('.ulhover li').each(function (i, el) {
-
-            getMenuList($(el).find('span a').attr('href'), $(el).find('a').text())
+        getMenuList($(el).find('span a').attr('href'), $(el).find('a').text())
         bookList.push({name: $(el).find('span a').text(), url: $(el).find('a').attr('href')})
     })
 }
@@ -47,7 +52,7 @@ const getMenuList = async (bookUrl, bookName) => {
     // })
     $('.infoindex dd').each(function (i, el) {
 
-            getBookDetail($(el).find('a').attr('href'), bookName)
+        getBookDetail($(el).find('a').attr('href'), bookName)
         menuList.push({menuUrl: $(el).find('a').attr('href'), name: $(el).find('a').text()})
     })
 }
@@ -73,4 +78,5 @@ const getBookDetail = async (detailUrl, bookName) => {
 
 module.exports = {
     search,
+    getFile
 }
