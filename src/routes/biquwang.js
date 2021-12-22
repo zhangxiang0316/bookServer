@@ -1,12 +1,12 @@
 /**
  * create by zhangxiang on 2021-12-18 10:22
- * 类注释：搜小说
+ * 类注释：笔趣网
  * 备注：
  */
 const router = require('koa-router')()
-const {search} = require('../controller/souxiaoshuo')
+const {search} = require('../controller/biquwang')
 
-router.get('/souxiaoshuo/search', async (ctx, next) => {
+router.get('/biquwang/search', async (ctx, next) => {
   ctx.body = await search(ctx.query.name)
 })
 

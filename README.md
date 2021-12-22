@@ -20,6 +20,8 @@
 永生文学 |[搜索万相之王](http://zhangmuchen.top:8000/yongsheng/search?name=万相之王)
 3z中文 |[搜索万相之王](http://zhangmuchen.top:8000/sanz/search?name=万相之王)
 墨缘文学 |[搜索万相之王](http://zhangmuchen.top:8000/moyuan/search?name=万相之王)
+笔趣网 |[搜索万相之王](http://zhangmuchen.top:8000/biquwang/search?name=万相之王)
+鸟书网 |[搜索万相之王](http://zhangmuchen.top:8000/niaoshu/search?name=万相之王)
 
 
 

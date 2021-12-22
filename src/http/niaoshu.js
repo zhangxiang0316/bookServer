@@ -1,8 +1,7 @@
-//永生文学
 const axios = require("axios");
 
 const Http = axios.create({
-    baseURL: 'http://www.wuxs.org',
+    baseURL: 'https://www.99mk.com',
     timeout: 60 * 1000,
     withCredentials: true
 })
