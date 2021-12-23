@@ -24,6 +24,7 @@ const moyuan = require('./src/routes/moyuan')
 const biquwang = require('./src/routes/biquwang')
 const niaoshu = require('./src/routes/niaoshu')
 const lingling = require('./src/routes/lingling')
+const qiwu = require('./src/routes/qiwu')
 
 // error handler
 onerror(app)
@@ -38,10 +39,10 @@ app.use(require('koa-static')(__dirname + '/public'))
 
 // 跨域设置
 const corsOptions = {
-    'origin':function (ctx) {
-        const whiteList = ['http://book.zhangmuchen.top','http://localhost:8089']; //可跨域白名单
-        let url = ctx.header.referer.substr(0,ctx.header.referer.length - 1);
-        if(whiteList.includes(url)){
+    'origin': function (ctx) {
+        const whiteList = ['http://book.zhangmuchen.top', 'http://localhost:8089']; //可跨域白名单
+        let url = ctx.header.referer.substr(0, ctx.header.referer.length - 1);
+        if (whiteList.includes(url)) {
             console.log(url)
             return url //注意，这里域名末尾不能带/，否则不成功，所以在之前我把/通过substr干掉了
         }
@@ -66,22 +67,23 @@ app.use(async (ctx, next) => {
 
 // routes
 app.use(index.routes(), index.allowedMethods())
-app.use(biquge.routes(), biquge.allowedMethods())
-app.use(xbiquge.routes(), xbiquge.allowedMethods())
-app.use(xihongshi.routes(), xihongshi.allowedMethods())
-app.use(wudi.routes(), wudi.allowedMethods())
-app.use(fanqie.routes(), fanqie.allowedMethods())
-app.use(yongsheng.routes(), yongsheng.allowedMethods())
-app.use(xbiqupao.routes(), xbiqupao.allowedMethods())
-app.use(xiaoxiang.routes(), xiaoxiang.allowedMethods())
-app.use(biququ.routes(), biququ.allowedMethods())
-app.use(bayi.routes(), bayi.allowedMethods())
-app.use(danshu.routes(), danshu.allowedMethods())
-app.use(sanz.routes(), sanz.allowedMethods())
-app.use(moyuan.routes(), moyuan.allowedMethods())
-app.use(biquwang.routes(), biquwang.allowedMethods())
-app.use(niaoshu.routes(), niaoshu.allowedMethods())
-app.use(lingling.routes(), lingling.allowedMethods())
+    .use(biquge.routes(), biquge.allowedMethods())
+    .use(xbiquge.routes(), xbiquge.allowedMethods())
+    .use(xihongshi.routes(), xihongshi.allowedMethods())
+    .use(wudi.routes(), wudi.allowedMethods())
+    .use(fanqie.routes(), fanqie.allowedMethods())
+    .use(yongsheng.routes(), yongsheng.allowedMethods())
+    .use(xbiqupao.routes(), xbiqupao.allowedMethods())
+    .use(xiaoxiang.routes(), xiaoxiang.allowedMethods())
+    .use(biququ.routes(), biququ.allowedMethods())
+    .use(bayi.routes(), bayi.allowedMethods())
+    .use(danshu.routes(), danshu.allowedMethods())
+    .use(sanz.routes(), sanz.allowedMethods())
+    .use(moyuan.routes(), moyuan.allowedMethods())
+    .use(biquwang.routes(), biquwang.allowedMethods())
+    .use(niaoshu.routes(), niaoshu.allowedMethods())
+    .use(lingling.routes(), lingling.allowedMethods())
+    .use(qiwu.routes(), qiwu.allowedMethods())
 
 // error-handling
 app.on('error', (err, ctx) => {

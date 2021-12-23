@@ -22,6 +22,8 @@
 墨缘文学 |[搜索万相之王](http://zhangmuchen.top:8000/moyuan/search?name=万相之王)
 笔趣网 |[搜索万相之王](http://zhangmuchen.top:8000/biquwang/search?name=万相之王)
 鸟书网 |[搜索万相之王](http://zhangmuchen.top:8000/niaoshu/search?name=万相之王)
+00小说 |[搜索万相之王](http://zhangmuchen.top:8000/lingling/search?name=万相之王)
+起舞小说 |[搜索万相之王](http://zhangmuchen.top:8000/qiwu/search?name=万相之王)
 
 
 
