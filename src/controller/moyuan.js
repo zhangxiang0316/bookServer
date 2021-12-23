@@ -12,11 +12,9 @@ const cheerio = require('cheerio')
  * @returns {Promise<*[]>}
  */
 const search = async (name) => {
-  console.log(name)
   const res = await Http.get('/book/Search.aspx', {params: {id: name}})
   const $ = cheerio.load(res)
   const bookArr = []
-  console.log(res)
   $(".wraptwo .titone").each(function (i, el) {
     const obj = {}
     obj.menuUrl = $(el).find('.width369 a').attr('href')

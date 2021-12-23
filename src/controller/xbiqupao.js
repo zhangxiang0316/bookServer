@@ -7,7 +7,6 @@ const cheerio = require('cheerio')
  * @returns {Promise<*[]>}
  */
 const search = async (name) => {
-    console.log(name)
     const res = await Http.get(`/searchbook.php?search_key=${encodeURI(name)}`)
     const $ = cheerio.load(res)
     const bookArr = []

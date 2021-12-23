@@ -8,10 +8,8 @@ const cheerio = require('cheerio')
 const qs = require('qs')
 
 const search = async (name) => {
-    console.log(name)
     const res = await Http.post('/search.php', qs.stringify({keyword: name}))
     const $ = cheerio.load(res.toString())
-    console.log(res)
     const bookArr = []
     $('.search-list ul li').each(function (i, el) {
         if (i>0){

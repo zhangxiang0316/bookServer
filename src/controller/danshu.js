@@ -6,7 +6,6 @@
 const Http = require('../http/danshu')
 const cheerio = require('cheerio')
 const qs = require('qs')
-const {find} = require("cheerio/lib/api/traversing");
 
 const search = async (name) => {
     const res = await Http.post('/search.html', qs.stringify({searchkey: name}))

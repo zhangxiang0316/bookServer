@@ -10,7 +10,6 @@ const qs = require('qs')
 const search = async (name) => {
     let res = await Http.post('/read/search/', qs.stringify({searchkey: name}))
     const $ = cheerio.load(res.toString())
-    console.log(res)
     const bookArr = []
     $('.so_list .type_show .bookbox').each(function (i, el) {
         const obj = {}

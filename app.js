@@ -25,6 +25,7 @@ const biquwang = require('./src/routes/biquwang')
 const niaoshu = require('./src/routes/niaoshu')
 const lingling = require('./src/routes/lingling')
 const qiwu = require('./src/routes/qiwu')
+const zhuishu = require('./src/routes/zhuishu')
 
 // error handler
 onerror(app)
@@ -43,7 +44,6 @@ const corsOptions = {
         const whiteList = ['http://book.zhangmuchen.top', 'http://localhost:8089']; //可跨域白名单
         let url = ctx.header.referer.substr(0, ctx.header.referer.length - 1);
         if (whiteList.includes(url)) {
-            console.log(url)
             return url //注意，这里域名末尾不能带/，否则不成功，所以在之前我把/通过substr干掉了
         }
         return 'http://localhost:8088' //默认允许本地请求8088端口可跨域
@@ -84,6 +84,7 @@ app.use(index.routes(), index.allowedMethods())
     .use(niaoshu.routes(), niaoshu.allowedMethods())
     .use(lingling.routes(), lingling.allowedMethods())
     .use(qiwu.routes(), qiwu.allowedMethods())
+    .use(zhuishu.routes(), zhuishu.allowedMethods())
 
 // error-handling
 app.on('error', (err, ctx) => {

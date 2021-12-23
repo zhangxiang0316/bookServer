@@ -4,12 +4,10 @@ const qs = require('qs')
 const {yongsheng_Host} = require('../conf/conf')
 
 const search = async (name) => {
-    console.log(name)
     const res = await Http.post('/modules/article/search.php', qs.stringify({
         searchkey: name,
         searchtype: 'articlename'
     }))
-    console.log(res)
     const $ = cheerio.load(res.toString())
     const bookArr = []
     $('.info').each(function (i, el) {
@@ -56,7 +54,6 @@ const getMenuList = async (menuUrl) => {
     data = await Http.get(menuUrl)
     $ = cheerio.load(data.toString())
     $('#newlist div').each(function (i, el) {
-        console.log()
         const id = $(el).attr('data-id')
         const list = {
             id: id,
