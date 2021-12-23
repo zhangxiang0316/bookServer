@@ -15,6 +15,7 @@ const biquwang = require('../controller/biquwang')
 const niaoshu = require('../controller/niaoshu')
 const lingling = require('../controller/lingling')
 const qiwu = require('../controller/qiwu')
+const souxiaoshuo = require('../controller/souxiaoshuo')
 
 
 router.get('/getMenuList', async (ctx, next) => {
@@ -71,6 +72,9 @@ router.get('/getMenuList', async (ctx, next) => {
             break
         case "起舞小说":
             menuDetail = await qiwu.getMenuList(ctx.query.bookUrl)
+            break
+        case "搜小说":
+            menuDetail = await souxiaoshuo.getMenuList(ctx.query.bookUrl)
             break
         default:
             break
@@ -132,6 +136,9 @@ router.get('/getBookDetail', async (ctx, next) => {
             break
         case '起舞小说':
             bookDetail = await qiwu.getBookDetail(detailUrl)
+            break
+        case '搜小说':
+            bookDetail = await souxiaoshuo.getBookDetail(detailUrl)
             break
         default:
             break
