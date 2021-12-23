@@ -13,6 +13,7 @@ const sanz = require('../controller/sanz')
 const moyuan = require('../controller/moyuan')
 const biquwang = require('../controller/biquwang')
 const niaoshu = require('../controller/niaoshu')
+const lingling = require('../controller/lingling')
 
 
 router.get('/getMenuList', async (ctx, next) => {
@@ -63,6 +64,9 @@ router.get('/getMenuList', async (ctx, next) => {
       break
     case "鸟书网":
       menuDetail = await niaoshu.getMenuList(ctx.query.bookUrl)
+      break
+    case "00小说":
+      menuDetail = await lingling.getMenuList(ctx.query.bookUrl)
       break
     default:
       break
@@ -118,6 +122,9 @@ router.get('/getBookDetail', async (ctx, next) => {
       break
     case '鸟书网':
       bookDetail = await niaoshu.getBookDetail(detailUrl)
+      break
+    case '00小说':
+      bookDetail = await lingling.getBookDetail(detailUrl)
       break
     default:
       break

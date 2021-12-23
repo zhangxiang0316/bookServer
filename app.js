@@ -23,6 +23,7 @@ const sanz = require('./src/routes/sanz')
 const moyuan = require('./src/routes/moyuan')
 const biquwang = require('./src/routes/biquwang')
 const niaoshu = require('./src/routes/niaoshu')
+const lingling = require('./src/routes/lingling')
 
 // error handler
 onerror(app)
@@ -80,6 +81,7 @@ app.use(sanz.routes(), sanz.allowedMethods())
 app.use(moyuan.routes(), moyuan.allowedMethods())
 app.use(biquwang.routes(), biquwang.allowedMethods())
 app.use(niaoshu.routes(), niaoshu.allowedMethods())
+app.use(lingling.routes(), lingling.allowedMethods())
 
 // error-handling
 app.on('error', (err, ctx) => {
