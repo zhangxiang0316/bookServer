@@ -25,6 +25,7 @@
 00小说 |[搜索万相之王](http://zhangmuchen.top:8000/lingling/search?name=万相之王)
 起舞小说 |[搜索万相之王](http://zhangmuchen.top:8000/qiwu/search?name=万相之王)
 搜小说 |[搜索万相之王](http://zhangmuchen.top:8000/souxiaoshuo/search?name=万相之王)
+悠久小说 |[搜索万相之王](http://zhangmuchen.top:8000/youjiu/search?name=万相之王)
 
 
 

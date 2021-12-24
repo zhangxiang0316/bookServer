@@ -25,8 +25,8 @@ const biquwang = require('./src/routes/biquwang')
 const niaoshu = require('./src/routes/niaoshu')
 const lingling = require('./src/routes/lingling')
 const qiwu = require('./src/routes/qiwu')
-const zhuishu = require('./src/routes/zhuishu')
 const souxiaoshuo = require('./src/routes/souxiaoshuo')
+const youjiu = require('./src/routes/youjiu')
 
 // error handler
 onerror(app)
@@ -85,8 +85,8 @@ app.use(index.routes(), index.allowedMethods())
     .use(niaoshu.routes(), niaoshu.allowedMethods())
     .use(lingling.routes(), lingling.allowedMethods())
     .use(qiwu.routes(), qiwu.allowedMethods())
-    .use(zhuishu.routes(), zhuishu.allowedMethods())
     .use(souxiaoshuo.routes(), souxiaoshuo.allowedMethods())
+    .use(youjiu.routes(), youjiu.allowedMethods())
 
 // error-handling
 app.on('error', (err, ctx) => {

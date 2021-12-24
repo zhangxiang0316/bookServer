@@ -1,12 +1,12 @@
 /**
  * create by zhangxiang on 2021-12-08 20:07
- * 类注释:追书网
+ * 类注释:悠久
  * 备注：
  */
 const axios = require("axios");
 
 const Http = axios.create({
-    baseURL: "http://www.zshu.net",
+    baseURL: "http://www.ujxs.com",
     timeout: 60 * 1000,
     withCredentials: true
 })
@@ -22,4 +22,3 @@ Http.interceptors.response.use(response => {
 })
 
 module.exports = Http
-
