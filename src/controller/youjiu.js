@@ -9,7 +9,7 @@ const search = async (name) => {
     $('.shulist ul').each(function (i, el) {
         const obj = {}
         obj.menuUrl = $(el).find('.three a').first().attr('href')
-        obj.name = $(el).find('.three a').text()
+        obj.name = $(el).find('.three a').first().text()
         obj.author = $(el).find('.four a').text()
         obj.from = '悠久小说'
         obj.imgUrl = ''
