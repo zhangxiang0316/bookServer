@@ -23,7 +23,7 @@ const youjiu = require('../controller/youjiu')
  */
 router.get('/search',async (ctx, next) =>{
     const name = ctx.query.name
-    let bookList = {}
+    let bookList = []
     if (!name) {
         return bookList
     }
