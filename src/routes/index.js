@@ -18,7 +18,80 @@ const qiwu = require('../controller/qiwu')
 const souxiaoshuo = require('../controller/souxiaoshuo')
 const youjiu = require('../controller/youjiu')
 
+/**
+ * 查找
+ */
+router.get('/search',async (ctx, next) =>{
+    const name = ctx.query.name
+    let bookList = {}
+    if (!name) {
+        return bookList
+    }
+    switch (ctx.query.type) {
+        case '笔趣阁':
+            bookList = await biquge.search(name)
+            break
+        case '新笔趣阁':
+            bookList = await xbiquge.search(name)
+            break
+        case '西红柿':
+            bookList = await xihongshi.search(name)
+            break
+        case "无敌小说网":
+            bookList = await wudi.search(name)
+            break
+        case "番茄小说":
+            bookList = await fanqie.search(name)
+            break
+        case "永生文学":
+            bookList = await yongsheng.search(name)
+            break
+        case "笔趣泡":
+            bookList = await xbiqupao.search(name)
+            break
+        case "笔趣趣":
+            bookList = await biququ.search(name)
+            break
+        case "八一小说":
+            bookList = await bayi.search(name)
+            break
+        case "丹书铁卷":
+            bookList = await danshu.search(name)
+            break
+        case "3z中文":
+            bookList = await sanz.search(name)
+            break
+        case "墨缘文学":
+            bookList = await moyuan.search(name)
+            break
+        case "笔趣网":
+            bookList = await biquwang.search(name)
+            break
+        case "鸟书网":
+            bookList = await niaoshu.search(name)
+            break
+        case "00小说":
+            bookList = await lingling.search(name)
+            break
+        case "起舞小说":
+            bookList = await qiwu.search(name)
+            break
+        case "搜小说":
+            bookList = await souxiaoshuo.search(name)
+            break
+        case "悠久小说":
+            bookList = await youjiu.search(name)
+            break
+        default:
+            break
+    }
+    ctx.body = bookList
+})
 
+
+/**
+ * 获取章节
+ */
 router.get('/getMenuList', async (ctx, next) => {
     const bookUrl = ctx.query.bookUrl
     let menuDetail = {}
@@ -86,6 +159,9 @@ router.get('/getMenuList', async (ctx, next) => {
     ctx.body = menuDetail
 })
 
+/**
+ * 获取详情
+ */
 router.get('/getBookDetail', async (ctx, next) => {
     const detailUrl = ctx.query.detailUrl
     let bookDetail = {}

@@ -4,7 +4,7 @@ const views = require('koa-views')
 const json = require('koa-json')
 const onerror = require('koa-onerror')
 const bodyparser = require('koa-bodyparser')
-const logger = require('koa-logger')
+const {info, error, debug} = require('./src/utils/log4j')
 const Kcors = require('kcors')
 
 const index = require('./src/routes/index')
@@ -36,7 +36,6 @@ app.use(bodyparser({
     enableTypes: ['json', 'form', 'text']
 }))
 app.use(json())
-app.use(logger())
 app.use(require('koa-static')(__dirname + '/public'))
 
 // 跨域设置
@@ -63,7 +62,9 @@ app.use(async (ctx, next) => {
     const start = new Date()
     await next()
     const ms = new Date() - start
-    console.log('请求：', start, ctx.method, decodeURI(ctx.url), `${ms}ms`)
+    debug( "---method:" + ctx.method + "----url:" + decodeURI(ctx.url) + "----ms:" + `${ms}ms`)
+    debug(JSON.stringify(ctx.body))
+    info("---method:" + ctx.method + "----url:" + decodeURI(ctx.url) + "----ms:" + `${ms}ms`)
 })
 
 // routes
@@ -90,7 +91,8 @@ app.use(index.routes(), index.allowedMethods())
 
 // error-handling
 app.on('error', (err, ctx) => {
-    console.error('server error', err, ctx)
+    error(err)
+    error(ctx)
 });
 
 module.exports = app
