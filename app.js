@@ -4,7 +4,7 @@ const views = require('koa-views')
 const json = require('koa-json')
 const onerror = require('koa-onerror')
 const bodyparser = require('koa-bodyparser')
-const {info, error, debug} = require('./src/utils/log4j')
+// const {info, error, debug} = require('./src/utils/log4j')
 const Kcors = require('kcors')
 
 const index = require('./src/routes/index')
@@ -47,7 +47,8 @@ app.use(async (ctx, next) => {
     await next()
     const ms = new Date() - start
     // debug(JSON.stringify(ctx.body))
-    info("---method:" + ctx.method + "----url:" + decodeURI(ctx.url) + "----ms:" + `${ms}ms`)
+    console.log("---method:" + ctx.method + "----url:" + decodeURI(ctx.url) + "----ms:" + `${ms}ms`)
+    // info("---method:" + ctx.method + "----url:" + decodeURI(ctx.url) + "----ms:" + `${ms}ms`)
 })
 
 // routes
@@ -57,8 +58,9 @@ app.use(index.routes(), index.allowedMethods())
 
 // error-handling
 app.on('error', (err, ctx) => {
-    error(err)
-    error(ctx)
+    // error(err)
+    // error(ctx)
+    console.log(err, ctx)
 });
 
 module.exports = app

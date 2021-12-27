@@ -72,7 +72,6 @@ const getBookDetail = async (detailUrl) => {
     detail.form = '悠久小说'
     detail.detail = arr
     $('.mlfy_page a').each(function (i, el) {
-        console.log(i, $(el).attr('href'))
         if (i === 0)
             detail.previewUrl = $(el).attr('href').indexOf('/0.html') === -1 ? $(el).attr('href') : ''
         if (i === 2)

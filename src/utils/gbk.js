@@ -75,6 +75,5 @@ exports.decode = (str) => {
         }
     }).replace(/%[\w]{2}/g, function (a) {
         return decodeURIComponent(a);
-
     });
 }

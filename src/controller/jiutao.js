@@ -48,7 +48,6 @@ const getMenuList = async (menuUrl) => {
             }
     })
     menuUrl = $('.left .box').last().find('.title a').attr('href')
-    console.log(menuUrl)
     data = await Http.get(menuUrl)
     $ = cheerio.load(data.toString())
 
