@@ -17,11 +17,17 @@ const lingling = require('../controller/lingling')
 const qiwu = require('../controller/qiwu')
 const souxiaoshuo = require('../controller/souxiaoshuo')
 const youjiu = require('../controller/youjiu')
+const miaobige = require('../controller/miaobige')
+const qianqian = require('../controller/qianqian')
+const quanben = require('../controller/quanben')
+const weifeng = require('../controller/weifeng')
+const jiutao = require('../controller/jiutao')
+
 
 /**
  * 查找
  */
-router.get('/search',async (ctx, next) =>{
+router.get('/search', async (ctx, next) => {
     const name = ctx.query.name
     let bookList = []
     if (!name) {
@@ -81,6 +87,21 @@ router.get('/search',async (ctx, next) =>{
             break
         case "悠久小说":
             bookList = await youjiu.search(name)
+            break
+        case "妙笔阁":
+            bookList = await miaobige.search(name)
+            break
+        case "千千小说":
+            bookList = await qianqian.search(name)
+            break
+        case "全本小说":
+            bookList = await quanben.search(name)
+            break
+        case "微风小说":
+            bookList = await weifeng.search(name)
+            break
+        case "九桃小说":
+            bookList = await jiutao.search(name)
             break
         default:
             break
@@ -153,6 +174,21 @@ router.get('/getMenuList', async (ctx, next) => {
         case "悠久小说":
             menuDetail = await youjiu.getMenuList(ctx.query.bookUrl)
             break
+        case "妙笔阁":
+            menuDetail = await miaobige.getMenuList(ctx.query.bookUrl)
+            break
+        case "千千小说":
+            menuDetail = await qianqian.getMenuList(ctx.query.bookUrl)
+            break
+        case "全本小说":
+            menuDetail = await quanben.getMenuList(ctx.query.bookUrl)
+            break
+        case "微风小说":
+            menuDetail = await weifeng.getMenuList(ctx.query.bookUrl)
+            break
+        case "九桃小说":
+            menuDetail = await jiutao.getMenuList(ctx.query.bookUrl)
+            break
         default:
             break
     }
@@ -222,6 +258,21 @@ router.get('/getBookDetail', async (ctx, next) => {
             break
         case '悠久小说':
             bookDetail = await youjiu.getBookDetail(detailUrl)
+            break
+        case '妙笔阁':
+            bookDetail = await miaobige.getBookDetail(detailUrl)
+            break
+        case '千千小说':
+            bookDetail = await qianqian.getBookDetail(detailUrl)
+            break
+        case '全本小说':
+            bookDetail = await quanben.getBookDetail(detailUrl)
+            break
+        case '微风小说':
+            bookDetail = await weifeng.getBookDetail(detailUrl)
+            break
+        case '九桃小说':
+            bookDetail = await jiutao.getBookDetail(detailUrl)
             break
         default:
             break
