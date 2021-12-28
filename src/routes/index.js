@@ -1,4 +1,5 @@
 const router = require('koa-router')()
+
 const biquge = require('../controller/biquge')
 const xbiquge = require('../controller/xbiquge')
 const xihongshi = require('../controller/xihongshi')
@@ -22,6 +23,7 @@ const qianqian = require('../controller/qianqian')
 const quanben = require('../controller/quanben')
 const weifeng = require('../controller/weifeng')
 const jiutao = require('../controller/jiutao')
+const heiyan = require('../controller/heiyan')
 
 const bookArr = {
   '笔趣阁': biquge,
@@ -47,6 +49,7 @@ const bookArr = {
   '全本小说': quanben,
   '微风小说': weifeng,
   '九桃小说': jiutao,
+  '黑岩小说': heiyan,
 }
 
 /**

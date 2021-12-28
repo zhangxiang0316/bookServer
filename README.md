@@ -31,6 +31,7 @@
 全本小说 |[搜索万相之王](http://zhangmuchen.top:8000/search?name=万相之王&type=全本小说)
 微风小说 |[搜索万相之王](http://zhangmuchen.top:8000/search?name=万相之王&type=微风小说)
 九桃小说 |[搜索万相之王](http://zhangmuchen.top:8000/search?name=万相之王&type=九桃小说)
+黑岩小说 |[搜索万相之王](http://zhangmuchen.top:8000/search?name=万相之王&type=黑岩小说)
 
 
 

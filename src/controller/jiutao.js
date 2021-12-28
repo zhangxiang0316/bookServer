@@ -44,7 +44,7 @@ const getMenuList = async (menuUrl) => {
             info.last = {
                 url: $(el).find('a').attr('src'),
                 from: '九桃小说',
-                name: $(el).find('a').attr('src')
+                name: $(el).find('a').text()
             }
     })
     menuUrl = $('.left .box').last().find('.title a').attr('href')
