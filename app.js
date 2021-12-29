@@ -25,12 +25,12 @@ app.use(require('koa-static')(__dirname + '/public'))
 // 跨域设置
 const corsOptions = {
     'origin': function (ctx) {
-        const whiteList = ['http://book.zhangmuchen.top', 'http://localhost:8089']; //可跨域白名单
+        const whiteList = ['http://localhost:8088', 'http://127.0.0.1:8088']; //可跨域白名单
         let url = ctx.header.referer.substr(0, ctx.header.referer.length - 1);
         if (whiteList.includes(url)) {
             return url //注意，这里域名末尾不能带/，否则不成功，所以在之前我把/通过substr干掉了
         }
-        return 'http://localhost:8088' //默认允许本地请求8088端口可跨域
+        return 'http://book.zhangmuchen.top'
     },
     'credentials': true,
     'maxAge': 3600
