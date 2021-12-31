@@ -10,6 +10,7 @@ const Kcors = require('kcors')
 const index = require('./src/routes/index')
 const biquge = require('./src/routes/biquge')
 const xiaoxiang = require('./src/routes/xiaoxiang')
+const tingshubao = require('./src/routes/tingshubao')
 
 
 // error handler
@@ -47,7 +48,7 @@ app.use(async (ctx, next) => {
     await next()
     const ms = new Date() - start
     // debug(JSON.stringify(ctx.body))
-    console.log("---method:" + ctx.method + "----url:" + decodeURI(ctx.url) + "----ms:" + `${ms}ms`)
+    console.log("----time:" + new Date() + "----url:" + decodeURIComponent(ctx.url) + "----ms:" + `${ms}ms`)
     // info("---method:" + ctx.method + "----url:" + decodeURI(ctx.url) + "----ms:" + `${ms}ms`)
 })
 
@@ -55,12 +56,14 @@ app.use(async (ctx, next) => {
 app.use(index.routes(), index.allowedMethods())
     .use(biquge.routes(), biquge.allowedMethods())
     .use(xiaoxiang.routes(), xiaoxiang.allowedMethods())
+    .use(tingshubao.routes(), tingshubao.allowedMethods())
 
 // error-handling
 app.on('error', (err, ctx) => {
     // error(err)
     // error(ctx)
-    console.log(err, ctx)
+    console.log('错误信息：',err)
 });
+
 
 module.exports = app

@@ -13,7 +13,6 @@ const search = async (name) => {
     res = iconv.decode(Buffer.from(res), 'gbk');
     const $ = cheerio.load(res.toString())
     const bookArr = []
-    console.log(res)
     //只搜索到一本 返回为小说章节信息
     if ($('.box_con').find('#list').length > 0) {
         const obj = {}
