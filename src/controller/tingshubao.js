@@ -1,6 +1,6 @@
 /**
  * create by zhangxiang on 2021-12-16 20:59
- * 类注释：全本小说网
+ * 类注释：听书
  * 备注：
  */
 const Http = require('../http/tingshubao')
@@ -194,11 +194,29 @@ const getBookTypeList = async (url) => {
 }
 
 
+const getPingShuList = async (typeUrl) => {
+  let res = await Http.get(typeUrl, {responseType: 'arraybuffer'})
+  res = iconv.decode(Buffer.from(res), 'gb2312');
+  const $ = cheerio.load(res.toString())
+  const list = []
+  $('.list-ul .list-li').each(function (i, el) {
+    list.push({
+      menuUrl: $(el).find('a').attr('href'),
+      name: $(el).find('.list-name').text(),
+      author: $(el).find('.module-slide-author').text(),
+      imgUrl: 'http://m.tingshubao.com' + $(el).find('a .list-img').attr('data-original'),
+    })
+  })
+  return list
+}
+
+
 module.exports = {
   search,
   getMenuList,
   getBookDetail,
   getHome,
   getTypeList,
-  getBookTypeList
+  getBookTypeList,
+  getPingShuList
 }

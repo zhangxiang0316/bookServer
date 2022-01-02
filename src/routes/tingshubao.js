@@ -1,5 +1,13 @@
 const router = require('koa-router')()
-const {getHome, getTypeList, getBookTypeList, search, getMenuList, getBookDetail} = require('../controller/tingshubao')
+const {
+  getHome,
+  getTypeList,
+  getPingShuList,
+  getBookTypeList,
+  search,
+  getMenuList,
+  getBookDetail
+} = require('../controller/tingshubao')
 
 router.prefix('/tingshu')
 
@@ -13,6 +21,10 @@ router.get('/typeList', async (ctx, next) => {
 
 router.get('/bookTypeList', async (ctx, next) => {
   ctx.body = await getBookTypeList(ctx.query.url)
+})
+
+router.get('/pingShuList', async (ctx, next) => {
+  ctx.body = await getPingShuList(ctx.query.url)
 })
 
 router.get('/search', async (ctx, next) => {
