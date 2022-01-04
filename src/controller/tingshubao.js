@@ -138,7 +138,7 @@ const getHome = async () => {
   //最近更新
   const updateItem = {}
   const updateList = []
-  updateItem.title = '上架新书'
+  updateItem.title = '最近更新'
   $('.module').last().find('.book-list li').each(function (i, el) {
     updateList.push({
       menuUrl: $(el).find('.book-list-tit a').attr('href'),
