@@ -26,6 +26,8 @@ app.use(require('koa-static')(__dirname + '/public'))
 // 跨域设置
 const corsOptions = {
     'origin': function (ctx) {
+        if (!ctx.header.referer)
+            return 'null'
         const whiteList = ['http://localhost:8088', 'http://127.0.0.1:8088']; //可跨域白名单
         let url = ctx.header.referer.substr(0, ctx.header.referer.length - 1);
         if (whiteList.includes(url)) {
@@ -62,7 +64,7 @@ app.use(index.routes(), index.allowedMethods())
 app.on('error', (err, ctx) => {
     // error(err)
     // error(ctx)
-    console.log('错误信息：',err)
+    console.log('错误信息：', err)
 });
 
 

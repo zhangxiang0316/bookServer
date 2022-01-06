@@ -76,7 +76,8 @@ const getBookDetail = async (detailUrl) => {
   if (bookDetail[2] === 'tudou') {
 
   } else if (bookDetail[2] === 'tc') {
-    const res = await Http.get('https://www.gushiciju.com/player/key.php', {params: {url: bookDetail[0]}})
+    // const res = await Http.get('https://www.gushiciju.com/player/key.php', {params: {url: bookDetail[0]}})
+    const res = await Http.get('http://43.129.176.64/player/key.php', {params: {url: bookDetail[0]}})
     detail.url = res.url
   } else {
     detail.url = bookDetail[0]
