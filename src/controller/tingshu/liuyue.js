@@ -39,7 +39,7 @@ const getMenuList = async (menuUrl) => {
     info.type = $('.book-item-r div .book-type').first().text()
     $('.play-list ul li').each(function (i, el) {
         const obj = {}
-        obj.name = $(el).find('a').text().toString().replace('/\\n/g','').replace(/\t/g,'')
+        obj.name = $(el).find('a').text().toString().replace('/\\n/g', '').replace(/\t/g, '')
         obj.url = $(el).find('a').attr('href')
         arr.push(obj)
     })
@@ -56,9 +56,37 @@ const getMenuList = async (menuUrl) => {
 const getBookDetail = async (detailUrl) => {
     let res = await Http.get(detailUrl)
     const $ = cheerio.load(res.toString())
-    let bookDetail = []
     let detail = {}
-    console.log(res)
+    detail.title = $('.player-wrapper .book-item .book-item-r .episode-name').text()
+    const detailArr = detailUrl.split('/')
+    res = await Http.get('web/index/video_new', {
+        params: {
+            code: detailArr[2],
+            no: detailArr[3],
+            type: 0
+        },
+    })
+    console.log(res.data)
+    detail.url = res.data.videoUrl
+    res = await Http.get('web/index/video_new', {
+        params: {
+            code: detailArr[2],
+            no: detailArr[3],
+            type: 1
+        }
+    })
+    console.log(res.data)
+    detail.previewUrl =res.data? '/' + detailArr[1] + "/" + detailArr[2] + "/" + res.data.no:""
+    res = await Http.get('web/index/video_new', {
+        params: {
+            code: detailArr[2],
+            no: detailArr[3],
+            type: 2
+        }
+    })
+    console.log(res.data)
+    detail.nextUrl = '/' + detailArr[1] + "/" + detailArr[2] + "/" + res.data.no
+    console.log(detail)
     return detail
 }
 
