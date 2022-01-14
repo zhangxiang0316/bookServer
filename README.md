@@ -1,6 +1,6 @@
 # nodejs 抓取小说网站信息
 
-[在线地址查看](http://book.zhuangmuchen.top)
+[在线地址查看](http://book.zhangmuchen.top)
 
 前端使用vue搭建页面 [前端项目地址](https://github.com/zhangxiang0316/book)
 
