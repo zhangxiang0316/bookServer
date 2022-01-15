@@ -9,7 +9,7 @@ const {
   getBookDetail
 } = require('../controller/tingshubao')
 
-router.prefix('/tingshu')
+router.prefix('/tingshubao')
 
 router.get('/home', async (ctx, next) => {
   ctx.body = await getHome()

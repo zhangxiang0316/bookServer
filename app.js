@@ -12,6 +12,7 @@ const biquge = require('./src/routes/biquge')
 const xiaoxiang = require('./src/routes/xiaoxiang')
 const tingshubao = require('./src/routes/tingshubao')
 const liuyue = require('./src/routes/liuyue')
+const tingshu = require('./src/routes/tingshu')
 
 
 // error handler
@@ -61,6 +62,7 @@ app.use(index.routes(), index.allowedMethods())
     .use(xiaoxiang.routes(), xiaoxiang.allowedMethods())
     .use(tingshubao.routes(), tingshubao.allowedMethods())
     .use(liuyue.routes(), liuyue.allowedMethods())
+    .use(tingshu.routes(), tingshu.allowedMethods())
 
 // error-handling
 app.on('error', (err, ctx) => {

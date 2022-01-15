@@ -1,15 +1,16 @@
 /**
- * create by zhangxiang on 2021-12-23 10:05
- * Àà×¢ÊÍ£ºÁùÔÂÌýÊé
- * ±¸×¢£º
+ * create by zhangxiang on 2022-01-15 14:04
+ * ç±»æ³¨é‡Šï¼š275 å¬ä¹¦ç½‘
+ * å¤‡æ³¨ï¼š
  */
 const axios = require("axios");
 
 const Http = axios.create({
-    baseURL: 'http://www.6yueting.com',
-    timeout: 60 * 1000,
-    withCredentials: true
+    baseURL: 'https://www.i275.com',
+    timeout: 100 * 1000,
 })
+
+const cookie = new Date().getTime()
 
 Http.interceptors.request.use(config => {
     return config
@@ -22,4 +23,3 @@ Http.interceptors.response.use(response => {
 })
 
 module.exports = Http
-
