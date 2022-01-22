@@ -9,17 +9,16 @@ const cheerio = require('cheerio')
 const {authcode, base64_decode} = require('../../utils/huanting')
 
 const search = async (name) => {
-    let res = await Http.get(`/pc/index/search.html?keyword=${encodeURI(name)}`)
+    let res = await Http.get(`/search.php?searchword=${encodeURI(name)}`)
     let $ = cheerio.load(res.toString())
     const bookArr = [];
-    console.log(res)
-    $('.module-content ul li').each(function (i, el) {
+    $('.container .row .col-lg-wide-75 .stui-pannel_bd .stui-vodlist__media .activeclearfix').each(function (i, el) {
         const book = {}
-        book.menuUrl = $(el).find('.yun-link').attr('href')
-        book.name = $(el).find('.yun-link .text .name').text()
-        book.from = '275听书'
+        book.menuUrl = $(el).find('.detail .title .a').attr('href')
+        book.name = $(el).find('.detail .title .a').text()
+        book.from = '幻听网'
         book.author = $(el).find('.yun-link .text .actor').text()
-        book.imgUrl = $(el).find('.yun-link .img img').attr('data-original')
+        book.imgUrl = $(el).find('.thumb .a').attr('data-original')
         bookArr.push(book)
     })
     return bookArr
@@ -36,18 +35,17 @@ const getMenuList = async (menuUrl) => {
     let arr = []
     const res = await Http.get(menuUrl)
     let $ = cheerio.load(res.toString())
-    info.imgUrl = $('#content .detail-pic img').attr('src')
-    info.name = $('#content .detail-info .detail-title h1').text()
-    info.author = '演播：' + $('#content .detail-info .info .fn-left').first().next().next().find('dd').text() +
-        "作者：" + $('#content .detail-info .info .fn-right').first().next().next().find('dd').text()
-    info.disc = $('#content .detail-info .info .juqing dd').text()
-    info.status = '状态' + $('#content .detail-info .info .fn-left').last().find('dd').text()
-    info.type = $('#content .detail-info .info .fn-right').first().text().replace(/\n/g, '')
-    $('#stab1 .playul li').each(function (i, el) {
+    info.imgUrl = 'https://www.ting38.com' + $('.stui-content__thumb .stui-vodlist__thumb img').attr('data-original')
+    info.name = $('.stui-content__detail .title').text()
+    info.author = $('.stui-content__detail .data').eq(2).text() + $('.stui-content__detail .data').eq(3).text()
+    info.disc = $('.stui-content__detail .desc ').text().replace(/\t/g,'').replace(/\n/g,'')
+    info.status = '状态' + $('.stui-content__thumb .stui-vodlist__thumb .pic-text').text()
+    info.type = $('.stui-content__detail .data').first().text().replace(/\t/g,'').replace(/\n/g,'')
+    $('.stui-pannel_bd').first().find('ul li').each(function (i, el) {
         const obj = {}
         obj.name = $(el).find('a').text()
         obj.url = $(el).find('a').attr('href')
-        obj.from = '275听书'
+        obj.from = '幻听网'
         arr.push(obj)
     })
     bookDetail.info = info
@@ -70,7 +68,6 @@ const getBookDetail = async (detailUrl) => {
         if (i == 0) {
             const text = $(this)[0].children[0].data
             const matchNext = text.match(/var now=(.*);/);
-            console.log('--------', matchNext)
             const url = eval(matchNext[1].split(';')[0])
             detail.url = url
         }
