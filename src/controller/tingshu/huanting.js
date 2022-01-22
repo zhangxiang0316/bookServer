@@ -12,13 +12,14 @@ const search = async (name) => {
     let res = await Http.get(`/search.php?searchword=${encodeURI(name)}`)
     let $ = cheerio.load(res.toString())
     const bookArr = [];
-    $('.container .row .col-lg-wide-75 .stui-pannel_bd .stui-vodlist__media .activeclearfix').each(function (i, el) {
+    console.log(res)
+    $('.container .row .col-lg-wide-75 .stui-pannel .stui-pannel-box .stui-pannel_bd .stui-vodlist__media li').each(function (i, el) {
         const book = {}
-        book.menuUrl = $(el).find('.detail .title .a').attr('href')
-        book.name = $(el).find('.detail .title .a').text()
+        book.menuUrl = $(el).find('.detail .title a').attr('href')
+        book.name = $(el).find('.detail .title a').text()
         book.from = '幻听网'
-        book.author = $(el).find('.yun-link .text .actor').text()
-        book.imgUrl = $(el).find('.thumb .a').attr('data-original')
+        book.author = $(el).find('.detail p').first().text()+$(el).find('.detail p').eq(1).text()
+        book.imgUrl ='https://www.ting38.com' + $(el).find('.thumb a').attr('data-original')
         bookArr.push(book)
     })
     return bookArr
@@ -38,9 +39,9 @@ const getMenuList = async (menuUrl) => {
     info.imgUrl = 'https://www.ting38.com' + $('.stui-content__thumb .stui-vodlist__thumb img').attr('data-original')
     info.name = $('.stui-content__detail .title').text()
     info.author = $('.stui-content__detail .data').eq(2).text() + $('.stui-content__detail .data').eq(3).text()
-    info.disc = $('.stui-content__detail .desc ').text().replace(/\t/g,'').replace(/\n/g,'')
+    info.disc = $('.stui-content__detail .desc ').text().replace(/\t/g, '').replace(/\n/g, '')
     info.status = '状态' + $('.stui-content__thumb .stui-vodlist__thumb .pic-text').text()
-    info.type = $('.stui-content__detail .data').first().text().replace(/\t/g,'').replace(/\n/g,'')
+    info.type = $('.stui-content__detail .data').first().text().replace(/\t/g, '').replace(/\n/g, '')
     $('.stui-pannel_bd').first().find('ul li').each(function (i, el) {
         const obj = {}
         obj.name = $(el).find('a').text()
