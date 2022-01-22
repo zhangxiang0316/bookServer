@@ -51,9 +51,7 @@ app.use(async (ctx, next) => {
     const start = new Date()
     await next()
     const ms = new Date() - start
-    // debug(JSON.stringify(ctx.body))
     console.log("----time:" + new Date() + "----url:" + decodeURIComponent(ctx.url) + "----ms:" + `${ms}ms`)
-    // info("---method:" + ctx.method + "----url:" + decodeURI(ctx.url) + "----ms:" + `${ms}ms`)
 })
 
 // routes
