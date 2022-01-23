@@ -6,7 +6,8 @@
 const axios = require("axios");
 
 const Http = axios.create({
-  baseURL: 'https://www.mywenxue.cc',
+  // baseURL: 'https://www.mywenxue.cc',
+  baseURL: 'http://www.moyuanwenxue.com',
   timeout: 60 * 1000,
   withCredentials: true
 })

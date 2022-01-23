@@ -5,6 +5,8 @@
  */
 const Http = require('../http/moyuan')
 const cheerio = require('cheerio')
+const iconv = require('iconv-lite');
+const gbk = require("../utils/gbk");
 
 /**
  * 根据名称作者查询图书
@@ -12,19 +14,22 @@ const cheerio = require('cheerio')
  * @returns {Promise<*[]>}
  */
 const search = async (name) => {
-  const res = await Http.get('/book/Search.aspx', {params: {id: name}})
-  const $ = cheerio.load(res)
-  const bookArr = []
-  $(".wraptwo .titone").each(function (i, el) {
-    const obj = {}
-    obj.menuUrl = $(el).find('.width369 a').attr('href')
-    obj.name = $(el).find('.width369 a').text()
-    obj.author = $(el).find('.width111').text()
-    obj.from = '墨缘文学'
-    obj.imgUrl = ""
-    bookArr.push(obj)
-  });
-  return bookArr
+    let res = await Http.get(`/modules/article/search.php?searchkey=${gbk.encode(name)}&submit=%CB%D1%CB%F7`, {responseType: 'arraybuffer'})
+    res = iconv.decode(Buffer.from(res), 'gbk');
+    const $ = cheerio.load(res.toString())
+    const bookArr = []
+    $(".warpper .grid tr").each(function (i, el) {
+        if (i > 0) {
+            const obj = {}
+            obj.menuUrl = $(el).find('.odd').first().find('a').attr('href')
+            obj.name = $(el).find('.odd').first().find('a').text()
+            obj.author = $(el).find('.odd').eq(1).text()
+            obj.from = '墨缘文学'
+            obj.imgUrl = ""
+            bookArr.push(obj)
+        }
+    });
+    return bookArr
 }
 
 /**
@@ -33,35 +38,28 @@ const search = async (name) => {
  * @returns {Promise<{}>}
  */
 const getMenuList = async (menuUrl) => {
-  let res = await Http.get(menuUrl)
-  let $ = cheerio.load(res)
-  const bookDetail = {}
-  const info = {}
-  const arr = []
-  info.imgUrl = 'http:' + $('.box .ll1 .pic img').attr('src')
-  info.name = $('.box .l2 h1').text()
-  info.disc = $('.box .l2 .txt').text().replace(/\t/g, '').replace(/\n/g, '').toString().trim()
-  info.status = ""
-  info.last = {
-    url: $('.box .l2 .la a').attr('href'),
-    from: '墨缘文学',
-    name: $('.box .l2 .la a').text()
-  }
-
-  menuUrl = $('.b2 .box .tit a').attr('href')
-  res = await Http.get(menuUrl)
-  $ = cheerio.load(res)
-
-  $('.chapterList .chaper0').each(function (i, el) {
-    const obj = {}
-    obj.url = $(el).find('a').attr('href')
-    obj.name = $(el).find('a').text()
-    obj.from = '墨缘文学'
-    arr.push(obj)
-  })
-  bookDetail.info = info
-  bookDetail.list = arr
-  return bookDetail
+    let res = await Http.get(menuUrl, {responseType: 'arraybuffer'})
+    res = iconv.decode(Buffer.from(res), 'gbk');
+    const $ = cheerio.load(res.toString())
+    const bookDetail = {}
+    const info = {}
+    const arr = []
+    info.imgUrl = $('#fmimg img').attr('src')
+    info.name = $('#maininfo #info h1').text()
+    info.disc = $('#maininfo #info #intro').text().replace(/\t/g, '').replace(/\n/g, '').toString().trim()
+    info.updataTime = $('#maininfo #info p').eq(2).text()
+    info.author = $('#maininfo #info p').first().find('a').text()
+    info.status = '暂无'
+    $('.mu_contain .mulu_list li').each(function (i, el) {
+        const obj = {}
+        obj.url = menuUrl + $(el).find('a').attr('href')
+        obj.name = $(el).find('a').text()
+        obj.from = '墨缘文学'
+        arr.push(obj)
+    })
+    bookDetail.info = info
+    bookDetail.list = arr
+    return bookDetail
 }
 
 /**
@@ -70,23 +68,24 @@ const getMenuList = async (menuUrl) => {
  * @returns {Promise<{}>}
  */
 const getBookDetail = async (detailUrl) => {
-  const res = await Http.get(detailUrl)
-  const $ = cheerio.load(res.toString())
-  const detail = {}
-  const arr = []
-  $('.tb .txt').html().split('<br>').map(item => {
-    item.toString().trim() && arr.push(item.toString().trim())
-  })
-  detail.title = $('.tb h2').text()
-  detail.detail = arr
-  detail.from = '墨缘文学'
-  detail.previewUrl = $('.r_tools .l a').attr('href').indexOf('Index.htm') === -1 ? $('.r_tools .l a').attr('href') : ''
-  detail.nextUrl = $('.r_tools .r a').attr('href').indexOf('Index.htm') === -1 ? $('.r_tools .r a').attr('href') : ''
-  return detail
+    let res = await Http.get(detailUrl, {responseType: 'arraybuffer'})
+    res = iconv.decode(Buffer.from(res), 'gbk');
+    const $ = cheerio.load(res.toString())
+    const detail = {}
+    const arr = []
+    $('#htmlContent').html().split('<br><br>').map(item => {
+        item.toString().trim() && arr.push(item.toString().trim())
+    })
+    detail.title = $('#content h1').text()
+    detail.detail = arr
+    detail.from = '墨缘文学'
+    detail.previewUrl = $('#link-preview').attr('href').indexOf('.html') != -1 ? $('#link-preview').attr('href') : ''
+    detail.nextUrl = $('#link-next').attr('href').indexOf('.html') != -1 ? $('#link-next').attr('href') : ''
+    return detail
 }
 
 module.exports = {
-  search,
-  getMenuList,
-  getBookDetail,
+    search,
+    getMenuList,
+    getBookDetail,
 }
