@@ -17,7 +17,7 @@ const search = async (name) => {
         book.name = $(el).find('.style-img .style-title a').text()
         book.from = '乐听吧'
         book.author = $(el).find('.style-img .style-title .f-gray').text() + $(el).find('.detail p').eq(1).text()
-        book.imgUrl = 'https://www.leting8.com' + $(el).find('.style-img .img-80').attr('src')
+        book.imgUrl = 'https://www.leting8.com' + $(el).find('.style-img .img-80 img').attr('src')
         bookArr.push(book)
     })
     return bookArr
