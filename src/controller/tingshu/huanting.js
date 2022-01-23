@@ -12,7 +12,6 @@ const search = async (name) => {
     let res = await Http.get(`/search.php?searchword=${encodeURI(name)}`)
     let $ = cheerio.load(res.toString())
     const bookArr = [];
-    console.log(res)
     $('.container .row .col-lg-wide-75 .stui-pannel .stui-pannel-box .stui-pannel_bd .stui-vodlist__media li').each(function (i, el) {
         const book = {}
         book.menuUrl = $(el).find('.detail .title a').attr('href')
