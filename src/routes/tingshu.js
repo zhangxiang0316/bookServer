@@ -9,6 +9,7 @@ const router = require('koa-router')()
 const tingshuwang = require('../controller/tingshu/tingshuwang')
 const leting = require('../controller/tingshu/leting')
 const huanting = require('../controller/tingshu/huanting')
+const tingzhongguo = require('../controller/tingshu/tingzhongguo')
 const tingshubao = require('../controller/tingshubao')
 
 router.prefix('/tingshu')
@@ -18,6 +19,7 @@ const bookArr = {
     '听书宝': tingshubao,
     '幻听网': huanting,
     '乐听吧': leting,
+    '听中国': tingzhongguo,
 }
 
 /**
